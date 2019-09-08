@@ -1,0 +1,11 @@
+"Resources_1"
+	User "saint11", https://opengameart.org/content/resouces-pack-1
+	CC0
+
+"overworld tileset"
+	User "Beast", https://opengameart.org/content/worldmapoverworld-tileset
+	CC-BY-SA 3.0
+	
+"Poppins" font
+	Ninad Kale and Jonny Pinhorn, https://fontlibrary.org/en/font/poppins
+	SIL Open Font License 1.1

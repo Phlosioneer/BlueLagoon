@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="25" height="16" tilewidth="50" tileheight="50" infinite="0" nextlayerid="62" nextobjectid="202">
+ <tileset firstgid="1" source="ui_tileset.tsx"/>
+ <tileset firstgid="65" source="resource icons.tsx"/>
+ <layer id="16" name="Static Tiles" width="25" height="16">
+  <data encoding="csv">
+1,2,2,2,2,3,1,2,2,2,2,3,1,2,2,2,3,9,10,10,10,10,10,10,11,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,17,18,18,18,18,18,18,19,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,17,18,18,18,18,18,18,19,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,25,26,26,26,26,26,26,27,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,2,2,2,2,2,3,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9,10,10,10,10,10,10,11,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,25,26,26,26,26,26,26,27
+</data>
+ </layer>
+ <group id="23" name="Player Info Panel" offsetx="850" offsety="250">
+  <layer id="24" name="Static Tiles" width="25" height="16">
+   <data encoding="csv">
+9,10,10,10,10,10,10,11,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+17,18,18,18,18,18,18,19,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+17,18,18,18,18,18,18,19,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+17,18,18,18,18,18,18,19,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+17,18,18,18,18,18,18,19,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+17,18,18,18,18,18,18,19,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+17,18,18,18,18,18,18,19,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+17,18,18,18,18,18,18,19,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+25,26,26,26,26,26,26,27,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+  </layer>
+  <layer id="22" name="Resource Tiles" width="25" height="16" offsetx="5" offsety="0">
+   <data encoding="csv">
+69,0,0,0,65,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+66,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+67,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+68,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+  </layer>
+  <objectgroup id="27" name="Static Text">
+   <object id="38" x="305" y="10" width="90" height="30">
+    <text fontfamily="Poppins" wrap="1" halign="center" valign="center">(       points)</text>
+   </object>
+   <object id="44" x="290" y="60" width="20" height="30">
+    <text fontfamily="Poppins" wrap="1" halign="center" valign="center">/</text>
+   </object>
+   <object id="45" x="290" y="110" width="20" height="30">
+    <text fontfamily="Poppins" wrap="1" halign="center" valign="center">/</text>
+   </object>
+   <object id="46" x="10" y="260" width="180" height="30">
+    <text fontfamily="Poppins" wrap="1" valign="center">Islands Visited:</text>
+   </object>
+   <object id="47" x="10" y="310" width="180" height="30">
+    <text fontfamily="Poppins" wrap="1" valign="center">Islands Controlled:</text>
+   </object>
+   <object id="48" x="10" y="360" width="190" height="30">
+    <text fontfamily="Poppins" wrap="1" valign="center">Longest Chain:</text>
+   </object>
+   <object id="49" x="10" y="210" width="180" height="30">
+    <text fontfamily="Poppins" wrap="1" valign="center">Set Bonus:</text>
+   </object>
+   <object id="52" x="240" y="360" width="60" height="30">
+    <text fontfamily="Poppins" wrap="1" valign="center">islands</text>
+   </object>
+   <object id="57" x="110" y="10" width="90" height="30">
+    <text fontfamily="Poppins" wrap="1">(       points)</text>
+   </object>
+   <object id="58" x="110" y="60" width="90" height="30">
+    <text fontfamily="Poppins" wrap="1">(       points)</text>
+   </object>
+   <object id="59" x="110" y="110" width="90" height="30">
+    <text fontfamily="Poppins" wrap="1">(       points)</text>
+   </object>
+   <object id="60" x="110" y="160" width="90" height="30">
+    <text fontfamily="Poppins" wrap="1">(       points)</text>
+   </object>
+   <object id="63" x="305" y="210" width="90" height="30">
+    <text fontfamily="Poppins" wrap="1" valign="center">(       points)</text>
+   </object>
+   <object id="64" x="305" y="260" width="90" height="30">
+    <text fontfamily="Poppins" wrap="1" valign="center">(       points)</text>
+   </object>
+   <object id="65" x="305" y="310" width="90" height="30">
+    <text fontfamily="Poppins" wrap="1" valign="center">(       points)</text>
+   </object>
+   <object id="66" x="305" y="360" width="90" height="30">
+    <text fontfamily="Poppins" wrap="1" valign="center">(       points)</text>
+   </object>
+   <object id="68" x="10" y="410" width="180" height="30">
+    <text fontfamily="Poppins" wrap="1" valign="center">Total Points:</text>
+   </object>
+   <object id="42" x="310" y="60" width="30" height="30">
+    <text fontfamily="Poppins" wrap="1" halign="center" valign="center">20</text>
+   </object>
+   <object id="43" x="310" y="110" width="30" height="30">
+    <text fontfamily="Poppins" wrap="1" halign="center" valign="center">5</text>
+   </object>
+  </objectgroup>
+  <objectgroup id="26" name="Spawns">
+   <object id="16" name="Player Token" gid="29" x="205" y="100" width="50" height="50"/>
+   <object id="17" name="Player Hut" gid="30" x="205" y="150" width="50" height="50"/>
+   <object id="33" name="Wood Count" x="60" y="10" width="30" height="30">
+    <text fontfamily="Poppins" wrap="1" halign="center" valign="center">42</text>
+   </object>
+   <object id="34" name="Gem Count" x="60" y="60" width="31" height="30">
+    <text fontfamily="Poppins" wrap="1" halign="center" valign="center">42</text>
+   </object>
+   <object id="35" name="Bread Count" x="60" y="110" width="31" height="30">
+    <text fontfamily="Poppins" wrap="1" halign="center" valign="center">42</text>
+   </object>
+   <object id="36" name="Rock Count" x="60" y="160" width="31" height="30">
+    <text fontfamily="Poppins" wrap="1" halign="center" valign="center">42</text>
+   </object>
+   <object id="37" name="Gold Count" x="260" y="10" width="30" height="30">
+    <text fontfamily="Poppins" wrap="1" halign="center" valign="center">42</text>
+   </object>
+   <object id="39" name="Tokens Left" x="260" y="60" width="30" height="30">
+    <text fontfamily="Poppins" wrap="1" halign="center" valign="center">42</text>
+   </object>
+   <object id="40" name="Gold Score" x="310" y="10" width="30" height="30">
+    <text fontfamily="Poppins" wrap="1" halign="center" valign="center">42</text>
+   </object>
+   <object id="41" name="Huts Left" x="260" y="110" width="30" height="30">
+    <text fontfamily="Poppins" wrap="1" halign="center" valign="center">42</text>
+   </object>
+   <object id="85" name="Wood Score" x="119" y="10" width="31" height="19">
+    <text fontfamily="Poppins" wrap="1">42</text>
+   </object>
+   <object id="86" name="Gem Score" x="119" y="60" width="31" height="19">
+    <text fontfamily="Poppins" wrap="1">42</text>
+   </object>
+   <object id="87" name="Bread Score" x="119" y="110" width="31" height="19">
+    <text fontfamily="Poppins" wrap="1">42</text>
+   </object>
+   <object id="88" name="Rock Score" x="119" y="160" width="31" height="19">
+    <text fontfamily="Poppins" wrap="1">42</text>
+   </object>
+   <object id="89" name="Previous Round Score" x="310" y="160" width="30" height="30">
+    <text fontfamily="Poppins" wrap="1" halign="center" valign="center">42</text>
+   </object>
+   <object id="90" name="Set Bonus Score" x="310" y="210" width="30" height="30">
+    <text fontfamily="Poppins" wrap="1" halign="center" valign="center">42</text>
+   </object>
+   <object id="91" name="Islands Visited Score" x="310" y="260" width="30" height="30">
+    <text fontfamily="Poppins" wrap="1" halign="center" valign="center">42</text>
+   </object>
+   <object id="92" name="Islands Controlled Score" x="310" y="310" width="30" height="30">
+    <text fontfamily="Poppins" wrap="1" halign="center" valign="center">42</text>
+   </object>
+   <object id="93" name="Longest Chain Score" x="310" y="360" width="30" height="30">
+    <text fontfamily="Poppins" wrap="1" halign="center" valign="center">42</text>
+   </object>
+   <object id="94" name="Set Bonus Status" x="210" y="210" width="30" height="30">
+    <text fontfamily="Poppins" wrap="1" halign="center" valign="center">No</text>
+   </object>
+   <object id="95" name="Player Total Score" x="210" y="410" width="30" height="30">
+    <text fontfamily="Poppins" wrap="1" halign="center" valign="center">42</text>
+   </object>
+   <object id="96" name="Islands Visited Count" x="210" y="260" width="30" height="30">
+    <text fontfamily="Poppins" wrap="1" halign="center" valign="center">42</text>
+   </object>
+   <object id="97" name="Islands Controlled Count" x="210" y="310" width="30" height="30">
+    <text fontfamily="Poppins" wrap="1" halign="center" valign="center">42</text>
+   </object>
+   <object id="98" name="Longest Chain Count" x="210" y="360" width="30" height="30">
+    <text fontfamily="Poppins" wrap="1" halign="center" valign="center">42</text>
+   </object>
+   <object id="83" name="Previous Round Static Text" x="210" y="155" width="80" height="25">
+    <text fontfamily="Poppins" wrap="1">Previous</text>
+   </object>
+   <object id="84" name="Previous Round Static Text" x="340" y="160" width="60" height="30">
+    <text fontfamily="Poppins" wrap="1" valign="center">points</text>
+   </object>
+   <object id="115" name="Previous Round Static Text" x="230" y="172" width="60" height="25">
+    <text fontfamily="Poppins" wrap="1">Round:</text>
+   </object>
+  </objectgroup>
+ </group>
+ <objectgroup id="21" name="Static Text">
+  <object id="26" x="1110" y="210" width="50" height="30">
+   <text fontfamily="Poppins" wrap="1" valign="center">Points:</text>
+  </object>
+  <object id="69" x="960" y="10" width="80" height="30">
+   <text fontfamily="Poppins" wrap="1" valign="center">Rankings:</text>
+  </object>
+  <object id="99" x="855" y="110" width="110" height="30">
+   <text fontfamily="Poppins" wrap="1" valign="center">Turn Number:</text>
+  </object>
+  <object id="101" x="855" y="60" width="40" height="30">
+   <text fontfamily="Poppins" wrap="1" valign="center">Host:</text>
+  </object>
+  <object id="107" x="960" y="710" width="30" height="30">
+   <text fontfamily="Poppins" wrap="1" halign="center" valign="center">BRB</text>
+  </object>
+  <object id="108" x="860" y="710" width="80" height="30">
+   <text fontfamily="Poppins" wrap="1" halign="center" valign="center">Your Go!</text>
+  </object>
+  <object id="109" x="1010" y="760" width="80" height="30">
+   <text fontfamily="Poppins" wrap="1" halign="center" valign="center">Nice!</text>
+  </object>
+  <object id="110" x="860" y="760" width="130" height="30">
+   <text fontfamily="Poppins" wrap="1" halign="center" valign="center">Good Game</text>
+  </object>
+  <object id="111" x="1010" y="710" width="80" height="30">
+   <text fontfamily="Poppins" wrap="1" halign="center" valign="center">Back</text>
+  </object>
+  <object id="113" x="855" y="160" width="60" height="30">
+   <text fontfamily="Poppins" wrap="1" valign="center">Status:</text>
+  </object>
+  <object id="114" x="855" y="10" width="90" height="30">
+   <text fontfamily="Poppins" wrap="1" halign="center" valign="center">Menu (Esc)</text>
+  </object>
+ </objectgroup>
+ <objectgroup id="8" name="Spawns">
+  <object id="2" name="Player 2 Color" gid="5" x="0" y="50" width="50" height="50"/>
+  <object id="3" name="Player 3 Color" gid="13" x="300" y="50" width="50" height="50"/>
+  <object id="4" name="Player 4 Color" gid="21" x="600" y="50" width="50" height="50"/>
+  <object id="7" name="Player 1 Color" gid="29" x="850" y="250" width="50" height="50"/>
+  <object id="9" name="Player 2 Name" x="60" y="10" width="180" height="30">
+   <text fontfamily="Poppins" wrap="1" valign="center">Hello World</text>
+  </object>
+  <object id="13" name="Player 3 Name" x="360" y="10" width="180" height="30">
+   <text fontfamily="Poppins" wrap="1" valign="center">Hello World</text>
+  </object>
+  <object id="14" name="Player 4 Name" x="660" y="10" width="180" height="30">
+   <text fontfamily="Poppins" wrap="1" valign="center">Hello World</text>
+  </object>
+  <object id="15" name="Player 1 Name" x="910" y="210" width="130" height="30">
+   <text fontfamily="Poppins" wrap="1" valign="center">Hello World</text>
+  </object>
+  <object id="25" name="Player 1 Score" x="1170" y="210" width="30" height="30">
+   <text fontfamily="Poppins" wrap="1" halign="center" valign="center">42</text>
+  </object>
+  <object id="30" name="Player 4 Score" x="810" y="10" width="30" height="30">
+   <text fontfamily="Poppins" wrap="1" halign="center" valign="center">42</text>
+  </object>
+  <object id="31" name="Player 3 Score" x="560" y="10" width="30" height="30">
+   <text fontfamily="Poppins" wrap="1" halign="center" valign="center">42</text>
+  </object>
+  <object id="32" name="Player 2 Score" x="260" y="10" width="30" height="30">
+   <text fontfamily="Poppins" wrap="1" halign="center" valign="center">42</text>
+  </object>
+  <object id="73" name="Rank 1 Name" x="1110" y="10" width="130" height="30">
+   <text fontfamily="Poppins" wrap="1" valign="center">Hello World</text>
+  </object>
+  <object id="74" name="Rank 2 Name" x="1110" y="60" width="130" height="30">
+   <text fontfamily="Poppins" wrap="1" valign="center">Hello World</text>
+  </object>
+  <object id="75" name="Rank 3 Name" x="1110" y="110" width="130" height="30">
+   <text fontfamily="Poppins" wrap="1" valign="center">Hello World</text>
+  </object>
+  <object id="76" name="Rank 4 Name" x="1110" y="160" width="130" height="30">
+   <text fontfamily="Poppins" wrap="1" valign="center">Hello World</text>
+  </object>
+  <object id="77" name="Rank 1 Color" gid="29" x="1050" y="50" width="50" height="50"/>
+  <object id="78" name="Rank 2 Color" gid="29" x="1050" y="100" width="50" height="50"/>
+  <object id="79" name="Rank 3 Color" gid="29" x="1050" y="150" width="50" height="50"/>
+  <object id="80" name="Rank 4 Color" gid="29" x="1050" y="200" width="50" height="50"/>
+  <object id="100" name="Turn Count" x="970" y="110" width="30" height="30">
+   <text fontfamily="Poppins" wrap="1" halign="center" valign="center">42</text>
+  </object>
+  <object id="102" name="Host Color" gid="5" x="900" y="100" width="50" height="50"/>
+  <object id="103" name="Blue Tile" type="Indicator Tile" gid="5" x="32.3333" y="-85" width="50" height="50"/>
+  <object id="104" name="Yellow Tile" type="Indicator Tile" gid="13" x="135" y="-75.6667" width="50" height="50"/>
+  <object id="105" name="Red Tile" type="Indicator Tile" gid="21" x="231" y="-79.6667" width="50" height="50"/>
+  <object id="106" name="Green Tile" type="Indicator Tile" gid="29" x="344.333" y="-75.6667" width="50" height="50"/>
+  <object id="112" name="Connection Status" x="915" y="160" width="130" height="30">
+   <text fontfamily="Poppins" wrap="1" valign="center">Connected</text>
+  </object>
+  <object id="136" name="Blue Hut" type="Indicator Tile" gid="6" x="31" y="-185" width="50" height="50"/>
+  <object id="137" name="Yellow Hut" type="Indicator Tile" gid="14" x="125" y="-181" width="50" height="50"/>
+  <object id="138" name="Red Hut" type="Indicator Tile" gid="22" x="225" y="-179" width="50" height="50"/>
+  <object id="139" name="Green Hut" type="Indicator Tile" gid="30" x="349" y="-171" width="50" height="50"/>
+  <object id="140" name="Wood" type="Indicator Tile" gid="69" x="517" y="-162" width="44" height="44"/>
+  <object id="141" name="Rock" type="Indicator Tile" gid="68" x="521" y="-94" width="44" height="44"/>
+  <object id="142" name="Bread" type="Indicator Tile" gid="67" x="441" y="-166" width="44" height="44"/>
+  <object id="143" name="Gems" type="Indicator Tile" gid="66" x="423" y="-82" width="44" height="44"/>
+ </objectgroup>
+ <group id="40" name="Resource Tooltip" offsetx="50" offsety="100">
+  <layer id="42" name="Static Tiles" width="25" height="16" opacity="0.5">
+   <data encoding="csv">
+9,10,10,11,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+17,18,18,19,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+17,18,18,19,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+25,26,26,27,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+  </layer>
+  <objectgroup id="41" name="Static Text">
+   <object id="161" x="10" y="160" width="130" height="30">
+    <text fontfamily="Poppins" wrap="1" halign="center" valign="center">Max Points: 20</text>
+   </object>
+   <object id="165" x="160" y="10" width="30" height="30">
+    <text fontfamily="Poppins" wrap="1" halign="center" valign="center">5</text>
+   </object>
+   <object id="168" x="160" y="60" width="30" height="30">
+    <text fontfamily="Poppins" wrap="1" halign="center" valign="center">10</text>
+   </object>
+   <object id="169" x="160" y="110" width="30" height="30">
+    <text fontfamily="Poppins" wrap="1" halign="center" valign="center">20</text>
+   </object>
+  </objectgroup>
+  <objectgroup id="45" name="Spawns">
+   <object id="144" name="Resource Icon" gid="69" x="5" y="50" width="44" height="44"/>
+   <object id="145" name="Resource Icon" gid="69" x="5" y="100" width="44" height="44"/>
+   <object id="146" name="Resource Icon" gid="69" x="35" y="100" width="44" height="44"/>
+   <object id="147" name="Resource Icon" gid="69" x="5" y="150" width="44" height="44"/>
+   <object id="148" name="Resource Icon" gid="69" x="35" y="150" width="44" height="44"/>
+   <object id="149" name="Resource Icon" gid="69" x="65" y="150" width="44" height="44"/>
+   <object id="154" name="Resource Icon" gid="69" x="35" y="50" width="44" height="44"/>
+   <object id="155" name="Resource Icon" gid="69" x="65" y="100" width="44" height="44"/>
+   <object id="156" name="Resource Icon" gid="69" x="95" y="150" width="44" height="44"/>
+  </objectgroup>
+ </group>
+ <group id="46" name="Set Bonus Tooltip" visible="0" offsetx="650" offsety="450">
+  <layer id="47" name="Static Tiles" width="25" height="16" opacity="0.5">
+   <data encoding="csv">
+9,10,10,11,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+25,26,26,27,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+  </layer>
+  <objectgroup id="48" name="Static Text">
+   <object id="174" gid="69" x="5" y="50" width="44" height="44"/>
+   <object id="175" gid="66" x="35" y="50" width="44" height="44"/>
+   <object id="176" gid="67" x="70" y="50" width="44" height="44"/>
+   <object id="177" gid="68" x="105" y="50" width="44" height="44"/>
+   <object id="178" x="160" y="10" width="30" height="30">
+    <text fontfamily="Poppins" wrap="1" halign="center" valign="center">10</text>
+   </object>
+   <object id="179" x="10" y="60" width="130" height="30">
+    <text fontfamily="Poppins" wrap="1" halign="center" valign="center">Max Points: 10</text>
+   </object>
+  </objectgroup>
+ </group>
+ <group id="49" name="Gold Tooltip" visible="0" offsetx="700" offsety="250">
+  <layer id="50" name="Static Tiles" width="25" height="16" opacity="0.5">
+   <data encoding="csv">
+1,2,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+  </layer>
+  <objectgroup id="51" name="Static Text">
+   <object id="190" gid="65" x="5" y="50" width="44" height="44"/>
+   <object id="191" x="60" y="10" width="80" height="30">
+    <text fontfamily="Poppins" wrap="1" halign="center" valign="center">4 each</text>
+   </object>
+  </objectgroup>
+ </group>
+ <group id="52" name="Islands Visited Tooltip" visible="0" offsetx="650" offsety="500">
+  <layer id="53" name="Static Tiles" width="25" height="16" opacity="0.5">
+   <data encoding="csv">
+9,10,10,11,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+17,18,18,19,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+17,18,18,19,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+25,26,26,27,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+  </layer>
+  <objectgroup id="54" name="Static Text">
+   <object id="192" x="10" y="10" width="130" height="30">
+    <text fontfamily="Poppins" wrap="1" valign="center">7 Islands</text>
+   </object>
+   <object id="193" x="10" y="60" width="130" height="30">
+    <text fontfamily="Poppins" wrap="1" valign="center">8 Islands</text>
+   </object>
+   <object id="194" x="10" y="110" width="180" height="30">
+    <text fontfamily="Poppins" wrap="1" halign="center" valign="center">You have visited an</text>
+   </object>
+   <object id="195" x="10" y="135" width="180" height="30">
+    <text fontfamily="Poppins" wrap="1" halign="center" valign="center">island if you have at</text>
+   </object>
+   <object id="196" x="10" y="160" width="180" height="30">
+    <text fontfamily="Poppins" wrap="1" halign="center" valign="center">least one piece on it.</text>
+   </object>
+   <object id="197" x="160" y="10" width="30" height="30">
+    <text fontfamily="Poppins" wrap="1" halign="center" valign="center">10</text>
+   </object>
+   <object id="198" x="160" y="60" width="30" height="30">
+    <text fontfamily="Poppins" wrap="1" halign="center" valign="center">20</text>
+   </object>
+  </objectgroup>
+ </group>
+ <group id="55" name="Islands Controlled Tooltip" visible="0" offsetx="600" offsety="550">
+  <layer id="56" name="Static Tiles" width="25" height="16" opacity="0.5">
+   <data encoding="csv">
+9,10,10,10,11,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+17,18,18,18,19,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+17,18,18,18,19,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+17,18,18,18,19,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+25,26,26,26,27,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+  </layer>
+  <objectgroup id="58" name="Static Text">
+   <object id="199" x="10" y="10" width="230" height="230">
+    <text fontfamily="Poppins" wrap="1" valign="center">Each island has a point value. You gain that many points if you have more pieces on that island than any other player. If two players tie for majority, the points are divided evenly, rounded down.</text>
+   </object>
+  </objectgroup>
+ </group>
+ <group id="59" name="Longest Chain Tooltip" visible="0" offsetx="600" offsety="550">
+  <layer id="60" name="Static Tiles" width="25" height="16" opacity="0.5">
+   <data encoding="csv">
+9,10,10,10,11,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+17,18,18,18,19,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+17,18,18,18,19,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+17,18,18,18,19,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+25,26,26,26,27,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+  </layer>
+  <objectgroup id="61" name="Static Text">
+   <object id="200" x="10" y="60" width="230" height="180">
+    <text fontfamily="Poppins" wrap="1">A chain is a collection of pieces (either normal or star) connected to each other. This score is based on how many islands one of your chains connect.</text>
+   </object>
+   <object id="201" x="10" y="10" width="230" height="30">
+    <text fontfamily="Poppins" wrap="1" valign="center">5 points per island</text>
+   </object>
+  </objectgroup>
+ </group>
+ <objectgroup id="43" name="Areas">
+  <object id="135" name="Player 4 Info Area" x="450" y="50" width="400" height="450"/>
+  <object id="134" name="Player 3 Info Area" x="250" y="50" width="400" height="450"/>
+  <object id="133" name="Player 2 Info Area" x="0" y="50" width="400" height="450"/>
+  <object id="1" name="Board Area" x="0" y="50" width="850" height="750"/>
+  <object id="81" name="Game Log Area" x="1100" y="700" width="150" height="100"/>
+  <object id="170" name="Wood Tooltip Area" x="650" y="250" width="200" height="200"/>
+  <object id="171" name="Gems Tooltip Area" x="650" y="300" width="200" height="200"/>
+  <object id="172" name="Bread Tooltip Area" x="650" y="350" width="200" height="200"/>
+  <object id="173" name="Rock Tooltip Area" x="650" y="400" width="200" height="200"/>
+  <object id="181" name="Wood Tooltip Trigger Area" x="850" y="250" width="200" height="50"/>
+  <object id="182" name="Gems Tooltip Trigger Area" x="850" y="300" width="200" height="50"/>
+  <object id="183" name="Bread Tooltip Trigger Area" x="850" y="350" width="200" height="50"/>
+  <object id="184" name="Rock Tooltip Trigger Area" x="850" y="400" width="200" height="50"/>
+  <object id="185" name="Set Bonus Tooltip Trigger Area" x="850" y="450" width="400" height="50"/>
+  <object id="186" name="Islands Visited Tooltip Trigger Area" x="850" y="500" width="400" height="50"/>
+  <object id="187" name="Islands Controlled Tooltip Trigger Area" x="850" y="550" width="400" height="50"/>
+  <object id="188" name="Longest Chain Tooltip Trigger Area" x="850" y="600" width="400" height="50"/>
+  <object id="189" name="Gold Tooltip Trigger Area" x="1050" y="250" width="200" height="50"/>
+ </objectgroup>
+</map>
