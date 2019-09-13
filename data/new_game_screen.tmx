@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="25" height="16" tilewidth="50" tileheight="50" infinite="0" nextlayerid="16" nextobjectid="99">
+ <tileset firstgid="1" source="ui_tileset.tsx"/>
+ <layer id="1" name="Window Tiles" width="25" height="16">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,9,10,10,10,10,10,10,10,11,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,17,18,18,18,18,18,18,18,19,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,17,18,18,18,18,18,18,18,19,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,17,18,18,18,18,18,18,18,19,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,17,18,18,18,18,18,18,18,19,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,17,18,18,18,18,18,18,18,19,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,17,18,18,18,18,18,18,18,19,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,17,18,18,18,18,18,18,18,19,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,25,26,26,26,26,26,26,26,27,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <group id="9" name="Host Tab">
+  <layer id="7" name="Host Tiles 1" width="25" height="16" offsetx="60" offsety="20">
+   <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,17,18,18,10,10,10,10,10,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,17,18,18,18,18,18,18,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,17,18,18,18,18,18,18,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,17,18,18,18,18,18,18,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,17,18,18,18,18,18,18,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,17,18,18,18,18,18,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+  </layer>
+  <layer id="8" name="Host Tiles 2" width="25" height="16" offsetx="90" offsety="40">
+   <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,19,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,19,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,19,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,19,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,19,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,18,19,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,26,26,26,26,26,26,26,27,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+  </layer>
+  <objectgroup draworder="index" id="6" name="Static Text">
+   <object id="26" gid="9" x="410" y="260" width="50" height="50"/>
+   <object id="28" gid="10" x="460" y="260" width="50" height="50"/>
+   <object id="14" gid="2" x="620" y="260" width="50" height="50"/>
+   <object id="27" gid="11" x="510" y="260" width="50" height="50"/>
+   <object id="13" gid="1" x="570" y="260" width="50" height="50"/>
+   <object id="15" gid="3" x="670" y="260" width="50" height="50"/>
+   <object id="37" gid="19" x="510" y="271" width="50" height="50"/>
+   <object id="38" gid="17" x="410" y="300" width="50" height="50"/>
+   <object id="17" x="580" y="220" width="130" height="30">
+    <text fontfamily="Poppins" wrap="1" halign="center" valign="center">Join</text>
+   </object>
+   <object id="16" x="420" y="220" width="130" height="30">
+    <text fontfamily="Poppins" wrap="1" halign="center" valign="center">Host</text>
+   </object>
+   <object id="39" gid="11" x="790" y="320" width="50" height="50"/>
+   <object id="40" gid="25" x="410" y="640" width="50" height="50"/>
+   <object id="41" x="420" y="310" width="120" height="30">
+    <text fontfamily="Poppins" wrap="1" valign="center">Username:</text>
+   </object>
+   <object id="42" x="420" y="410" width="120" height="30">
+    <text fontfamily="Poppins" wrap="1" valign="center">Match Name:</text>
+   </object>
+   <object id="43" x="420" y="510" width="120" height="30">
+    <text fontfamily="Poppins" wrap="1" valign="center">Your Color:</text>
+   </object>
+   <object id="96" gid="1" x="675" y="550" width="50" height="50"/>
+   <object id="97" gid="2" x="725" y="550" width="50" height="50"/>
+   <object id="98" gid="3" x="775" y="550" width="50" height="50"/>
+   <object id="95" x="685" y="510" width="130" height="30">
+    <text fontfamily="Poppins" wrap="1" halign="center" valign="center">Create Game</text>
+   </object>
+  </objectgroup>
+  <objectgroup draworder="index" id="10" name="Spawns">
+   <object id="9" name="User Name" type="Text Box" x="540" y="300" width="150" height="50"/>
+   <object id="18" gid="5" x="540" y="550" width="50" height="50"/>
+   <object id="19" gid="13" x="595" y="550" width="50" height="50"/>
+   <object id="20" gid="21" x="540" y="610" width="50" height="50"/>
+   <object id="21" gid="29" x="595" y="610" width="50" height="50"/>
+   <object id="25" name="Match Name" type="Text Box" x="540" y="400" width="150" height="50"/>
+   <object id="45" gid="6" x="540" y="550" width="50" height="50"/>
+   <object id="46" gid="14" x="595" y="550" width="50" height="50"/>
+   <object id="47" gid="22" x="540" y="610" width="50" height="50"/>
+   <object id="48" gid="30" x="595" y="610" width="50" height="50"/>
+  </objectgroup>
+ </group>
+ <group id="11" name="Join Tab" visible="0">
+  <layer id="13" name="Copy of Host Tiles 1" width="25" height="16" offsetx="60" offsety="20">
+   <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,9,10,10,0,0,0,0,10,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,17,18,18,18,18,18,18,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,17,18,18,18,18,18,18,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,17,18,18,18,18,18,18,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,17,18,18,18,18,18,18,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,17,18,18,18,18,18,18,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+  </layer>
+  <layer id="12" name="Copy of Host Tiles 2" width="25" height="16" offsetx="90" offsety="40">
+   <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,19,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,19,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,19,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,19,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,19,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,18,19,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,26,26,26,26,26,26,26,27,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+  </layer>
+  <objectgroup id="15" name="Object Layer 4">
+   <object id="62" gid="25" x="410" y="640" width="50" height="50"/>
+  </objectgroup>
+  <layer id="14" name="Tile Layer 6" width="25" height="16" offsetx="20" offsety="30">
+   <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,9,10,10,11,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,17,18,18,19,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,17,18,18,19,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,17,18,18,19,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,25,26,26,27,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+  </layer>
+  <objectgroup draworder="index" id="5" name="Join Tab">
+   <object id="49" gid="9" x="570" y="260" width="50" height="50"/>
+   <object id="50" gid="10" x="620" y="260" width="50" height="50"/>
+   <object id="51" gid="2" x="460" y="260" width="50" height="50"/>
+   <object id="52" gid="11" x="670" y="260" width="50" height="50"/>
+   <object id="53" gid="1" x="410" y="260" width="50" height="50"/>
+   <object id="54" gid="3" x="510" y="260" width="50" height="50"/>
+   <object id="55" gid="19" x="670" y="271" width="50" height="50"/>
+   <object id="56" gid="17" x="570" y="271" width="50" height="50"/>
+   <object id="57" x="580" y="220" width="130" height="30">
+    <text fontfamily="Poppins" wrap="1" halign="center" valign="center">Join</text>
+   </object>
+   <object id="58" x="420" y="220" width="130" height="30">
+    <text fontfamily="Poppins" wrap="1" halign="center" valign="center">Host</text>
+   </object>
+   <object id="59" gid="10" x="521" y="320" width="50" height="50"/>
+   <object id="60" gid="10" x="719" y="320" width="50" height="50"/>
+   <object id="61" gid="11" x="790" y="320" width="50" height="50"/>
+   <object id="24" name="User Name" type="Text Box" x="540" y="300" width="150" height="50"/>
+   <object id="63" x="420" y="310" width="120" height="30">
+    <text fontfamily="Poppins" wrap="1" valign="center">User Name:</text>
+   </object>
+   <object id="79" gid="1" x="425" y="435" width="50" height="50"/>
+   <object id="80" gid="2" x="470" y="435" width="50" height="50"/>
+   <object id="81" gid="3" x="565" y="435" width="50" height="50"/>
+   <object id="82" gid="2" x="520" y="435" width="50" height="50"/>
+   <object id="83" gid="1" x="425" y="490" width="50" height="50"/>
+   <object id="84" gid="2" x="470" y="490" width="50" height="50"/>
+   <object id="85" gid="3" x="565" y="490" width="50" height="50"/>
+   <object id="86" gid="2" x="520" y="490" width="50" height="50"/>
+   <object id="87" gid="1" x="425" y="545" width="50" height="50"/>
+   <object id="88" gid="2" x="470" y="545" width="50" height="50"/>
+   <object id="89" gid="3" x="565" y="545" width="50" height="50"/>
+   <object id="90" gid="2" x="520" y="545" width="50" height="50"/>
+   <object id="91" gid="1" x="425" y="600" width="50" height="50"/>
+   <object id="92" gid="2" x="470" y="600" width="50" height="50"/>
+   <object id="93" gid="3" x="565" y="600" width="50" height="50"/>
+   <object id="94" gid="2" x="520" y="600" width="50" height="50"/>
+   <object id="64" x="435" y="395" width="130" height="30">
+    <text fontfamily="Poppins" wrap="1" valign="center">Hello World</text>
+   </object>
+   <object id="65" x="575" y="395" width="30" height="30">
+    <text fontfamily="Poppins" wrap="1" halign="center" valign="center">42</text>
+   </object>
+   <object id="66" x="435" y="450" width="130" height="30">
+    <text fontfamily="Poppins" wrap="1" valign="center">Hello World</text>
+   </object>
+   <object id="67" x="575" y="450" width="30" height="30">
+    <text fontfamily="Poppins" wrap="1" halign="center" valign="center">42</text>
+   </object>
+   <object id="68" x="435" y="505" width="130" height="30">
+    <text fontfamily="Poppins" wrap="1" valign="center">Hello World</text>
+   </object>
+   <object id="69" x="575" y="505" width="30" height="30">
+    <text fontfamily="Poppins" wrap="1" halign="center" valign="center">42</text>
+   </object>
+   <object id="70" x="435" y="560" width="130" height="30">
+    <text fontfamily="Poppins" wrap="1" valign="center">Hello World</text>
+   </object>
+   <object id="71" x="575" y="560" width="30" height="30">
+    <text fontfamily="Poppins" wrap="1" halign="center" valign="center">42</text>
+   </object>
+   <object id="72" gid="5" x="674" y="525" width="50" height="50"/>
+   <object id="73" gid="13" x="735" y="525" width="50" height="50"/>
+   <object id="74" gid="21" x="674" y="585" width="50" height="50"/>
+   <object id="75" gid="29" x="735" y="585" width="50" height="50"/>
+   <object id="76" x="640" y="410" width="190" height="30">
+    <text wrap="1" valign="center">Choose a color to join:</text>
+   </object>
+  </objectgroup>
+ </group>
+</map>
