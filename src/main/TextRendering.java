@@ -5,8 +5,8 @@ import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import java.awt.font.GlyphVector;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import core.TextObject;
@@ -68,7 +68,9 @@ public class TextRendering {
 			font = loadedFonts.get(fontName);
 		} else {
 			try {
-				font = Font.createFont(Font.TRUETYPE_FONT, new File(app.sketchPath("data\\" + object.fontFamily + ".ttf")));
+				var stream = TextRendering.class.getClassLoader().getResourceAsStream(object.fontFamily + ".ttf");
+				System.out.println(stream);
+				font = Font.createFont(Font.TRUETYPE_FONT, stream);
 			} catch (Exception e) {
 				throw new RuntimeException(e);
 			}
@@ -134,10 +136,18 @@ public class TextRendering {
 		if (dummyGraphicsObj == null) {
 			BufferedImage img = new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB);
 			dummyGraphicsObj = img.createGraphics();
+			dummyGraphicsObj.setRenderingHint(RenderingHints.KEY_ALPHA_INTERPOLATION, RenderingHints.VALUE_ALPHA_INTERPOLATION_QUALITY);
+			dummyGraphicsObj.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+			dummyGraphicsObj.setRenderingHint(RenderingHints.KEY_COLOR_RENDERING, RenderingHints.VALUE_COLOR_RENDER_QUALITY);
+			dummyGraphicsObj.setRenderingHint(RenderingHints.KEY_DITHERING, RenderingHints.VALUE_DITHER_ENABLE);
+			dummyGraphicsObj.setRenderingHint(RenderingHints.KEY_FRACTIONALMETRICS, RenderingHints.VALUE_FRACTIONALMETRICS_ON);
+			dummyGraphicsObj.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+			dummyGraphicsObj.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
+			dummyGraphicsObj.setRenderingHint(RenderingHints.KEY_STROKE_CONTROL, RenderingHints.VALUE_STROKE_PURE);
 		}
 		dummyGraphicsObj.setFont(font);
 		FontMetrics metrics = dummyGraphicsObj.getFontMetrics();
-		int width = metrics.stringWidth(text);
+		int width = correctedStringWidth(font, metrics, text);
 		int height = metrics.getHeight();
 		ArrayList<String> lines;
 		if (width >= maxWidth) {
@@ -145,7 +155,11 @@ public class TextRendering {
 			lines = new ArrayList<String>();
 			String currentString = "";
 			for (String nextWord : words) {
-				int newWidth = metrics.stringWidth(currentString + " " + nextWord);
+				if (currentString.isEmpty()) {
+					currentString = nextWord;
+					continue;
+				}
+				int newWidth = correctedStringWidth(font, metrics, currentString + " " + nextWord);
 				if (newWidth >= maxWidth) {
 					// If this is a one-word line, we just have to use it.
 					if (currentString.equals("")) {
@@ -166,7 +180,7 @@ public class TextRendering {
 			height = metrics.getHeight() * lines.size();
 			width = -1;
 			for (String line : lines) {
-				int lineWidth = metrics.stringWidth(line);
+				int lineWidth = correctedStringWidth(font, metrics, line);
 				if (lineWidth > width) {
 					width = lineWidth;
 				}
@@ -191,7 +205,11 @@ public class TextRendering {
 		metrics = g2d.getFontMetrics();
 		g2d.setColor(Color.BLACK);
 		for (int i = 0; i < lines.size(); i++) {
-			g2d.drawString(lines.get(i), 0, metrics.getAscent() + i * metrics.getHeight());
+			// OpenJDK font rendering has a rounding bug, which causes letters to sometimes shift by a pixel.
+			// Explicitly turning them into glyphs forces floating-point rendering.
+			GlyphVector glyphs = font.createGlyphVector(g2d.getFontRenderContext(), lines.get(i));
+			g2d.fill(glyphs.getOutline(0, metrics.getAscent() + i * metrics.getHeight()));
+			// g2d.drawString(lines.get(i), 0, metrics.getAscent() + i * metrics.getHeight());
 		}
 		g2d.dispose();
 
@@ -199,6 +217,13 @@ public class TextRendering {
 		PImage ret = new PImage(width, height, PConstants.ARGB);
 		img.getRGB(0, 0, width, height, ret.pixels, 0, width);
 		ret.updatePixels();
+		return ret;
+	}
+
+	private static int correctedStringWidth(Font font, FontMetrics metrics, String s) {
+		var glpyhs = font.createGlyphVector(metrics.getFontRenderContext(), s);
+		double original = glpyhs.getGlyphPosition(glpyhs.getNumGlyphs()).getX();
+		int ret = (int) Math.ceil(original) - 1;
 		return ret;
 	}
 }

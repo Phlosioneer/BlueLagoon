@@ -1,7 +1,7 @@
 module BlueLagoon {
+	requires transitive java.desktop;
 	requires transitive core;
 	requires transitive TiledMapLoader;
-	requires transitive java.desktop;
 
 	exports main;
 }

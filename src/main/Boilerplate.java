@@ -1,6 +1,9 @@
 package main;
 
+import java.awt.Image;
+import java.io.IOException;
 import java.io.InputStream;
+import javax.imageio.ImageIO;
 import core.MapFile;
 import core.ObjectLayer;
 import core.TMXColor;
@@ -19,34 +22,40 @@ import util.Rect;
 public class Boilerplate {
 
 	static MapFile<PImage> openMap(PApplet app, String filename) {
-		ProcessingFileOpener fileOpener = new ProcessingFileOpener(app);
-		ProcessingImageHandler imageHandler = new ProcessingImageHandler(app);
+		ProcessingFileOpener fileOpener = new ProcessingFileOpener();
+		ProcessingImageHandler imageHandler = new ProcessingImageHandler(app, fileOpener);
 		return new MapFile<PImage>(filename, fileOpener, imageHandler);
 	}
 
 	private static class ProcessingFileOpener implements FileLocatorDelegate {
-		PApplet app;
-
-		public ProcessingFileOpener(PApplet app) {
-			this.app = app;
-		}
-
 		@Override
 		public InputStream openFile(String filename) {
-			return app.createInput(filename);
+			String correctedName = filename;
+			if (filename.startsWith("data/")) {
+				correctedName = filename.substring(5);
+			}
+			return getClass().getClassLoader().getResourceAsStream(correctedName);
 		}
 	}
 
 	private static class ProcessingImageHandler implements ImageDelegate<PImage> {
 		private PApplet app;
+		private FileLocatorDelegate fileLocator;
 
-		public ProcessingImageHandler(PApplet app) {
+		public ProcessingImageHandler(PApplet app, FileLocatorDelegate fileLocator) {
 			this.app = app;
+			this.fileLocator = fileLocator;
 		}
 
 		@Override
 		public PImage loadImage(String filename, TMXColor transparentColor) {
-			PImage ret = app.loadImage(filename);
+			PImage ret;
+			try {
+				Image rawImage = ImageIO.read(fileLocator.openFile(filename));
+				ret = new PImage(rawImage);
+			} catch (IOException e) {
+				throw new RuntimeException("Exception handler not yet implemented", e);
+			}
 			ret.loadPixels();
 
 			if (transparentColor != null) {
