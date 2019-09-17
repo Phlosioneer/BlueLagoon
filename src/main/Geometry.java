@@ -7,8 +7,8 @@ import processing.core.PVector;
 public class Geometry {
 
 	public static class HexCoords {
-		int x;
-		int y;
+		public int x;
+		public int y;
 	}
 
 	public static HexCoords pointToHex(MapFile<PImage> map, float x, float y, float mapOffsetX, float mapOffsetY) {

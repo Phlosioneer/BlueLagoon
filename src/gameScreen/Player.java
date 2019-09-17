@@ -1,4 +1,4 @@
-package main;
+package gameScreen;
 
 import core.TextObject;
 import core.Tile;
@@ -38,7 +38,7 @@ public class Player {
 	int playerNumber;
 	String playerName;
 
-	Player(int playerNumber) {
+	public Player(int playerNumber) {
 		pieceIcon = null;
 		hutIcon = null;
 		remainingPieces = 0;

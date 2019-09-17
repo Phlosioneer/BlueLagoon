@@ -1,4 +1,4 @@
-package main;
+package gameScreen;
 
 import java.util.ArrayList;
 import core.MapFile;
@@ -6,12 +6,15 @@ import core.ObjectLayer;
 import core.TMXObject;
 import core.TileLayer;
 import core.TileObject;
+import main.Boilerplate;
+import main.Geometry;
 import main.Geometry.HexCoords;
+import processing.core.PApplet;
 import processing.core.PImage;
 import processing.core.PVector;
 
 public class MainMap {
-	BlueLagoon app;
+	GameScreen parentScreen;
 	MapFile<PImage> map;
 	PImage background;
 
@@ -37,9 +40,8 @@ public class MainMap {
 
 	final int hexSideLength;
 
-	@SuppressWarnings("unchecked")
-	MainMap(BlueLagoon app, String filePath) {
-		this.app = app;
+	public MainMap(GameScreen parentScreen, PApplet app, String filePath) {
+		this.parentScreen = parentScreen;
 		map = Boilerplate.openMap(app, filePath);
 		assert (map.orientation == MapFile.Orientation.HEXAGONAL);
 		assert (map.staggerAxis == MapFile.StaggerAxis.Y);
@@ -48,13 +50,13 @@ public class MainMap {
 
 		hexSideLength = (int) map.getHexSideLength();
 
-		backgroundOcean = (TileLayer<PImage>) map.getLayerByName("Background Ocean");
-		backgroundTerrain = (TileLayer<PImage>) map.getLayerByName("Map");
-		backgroundTowns = (ObjectLayer<PImage>) map.getLayerByName("Towns");
-		backgroundGrid = (TileLayer<PImage>) map.getLayerByName("Hex Grid");
-		spawns = (ObjectLayer<PImage>) map.getLayerByName("Spawns");
-		pieces = (TileLayer<PImage>) map.getLayerByName("Player Pieces");
-		ObjectLayer<PImage> areas = (ObjectLayer<PImage>) map.getLayerByName("Areas");
+		backgroundOcean = map.getLayerByName("Background Ocean").asTiles();
+		backgroundTerrain = map.getLayerByName("Map").asTiles();
+		backgroundTowns = map.getLayerByName("Towns").asObjects();
+		backgroundGrid = map.getLayerByName("Hex Grid").asTiles();
+		spawns = map.getLayerByName("Spawns").asObjects();
+		pieces = map.getLayerByName("Player Pieces").asTiles();
+		ObjectLayer<PImage> areas = map.getLayerByName("Areas").asObjects();
 
 		// Make everything invisible unless we tell it otherwise.
 		for (TMXObject obj : spawns.objects) {
@@ -90,10 +92,10 @@ public class MainMap {
 		}
 
 		// Pick spawn points randomly.
-		shuffleArray(resourceSpawnPoints);
+		shuffleArray(resourceSpawnPoints, app);
 		int spawnIndex = 0;
 		for (TMXObject obj : allResources) {
-			TileObject<PImage> castedObj = (TileObject<PImage>) obj;
+			TileObject<PImage> castedObj = obj.asTile();
 			TMXObject point = resourceSpawnPoints.get(spawnIndex);
 			spawnIndex += 1;
 			float tileWidth = castedObj.tile.pixelRect.width;
@@ -106,7 +108,7 @@ public class MainMap {
 		}
 	}
 
-	void draw() {
+	public void draw(PApplet app) {
 		Boilerplate.drawHexStaticLayer(app, map, backgroundOcean, offsetX, offsetY);
 		Boilerplate.drawHexStaticLayer(app, map, backgroundTerrain, offsetX, offsetY);
 		Boilerplate.drawObjectLayer(app, backgroundTowns, offsetX, offsetY);
@@ -126,7 +128,7 @@ public class MainMap {
 		}
 	}
 
-	<T> void shuffleArray(ArrayList<T> array) {
+	<T> void shuffleArray(ArrayList<T> array, PApplet app) {
 		for (int i = 0; i < array.size(); i++) {
 			int j = (int) Math.floor(app.random(i, array.size()));
 			T temp = array.get(i);

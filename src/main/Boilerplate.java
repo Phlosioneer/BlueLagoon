@@ -21,7 +21,7 @@ import util.Rect;
 
 public class Boilerplate {
 
-	static MapFile<PImage> openMap(PApplet app, String filename) {
+	public static MapFile<PImage> openMap(PApplet app, String filename) {
 		ProcessingFileOpener fileOpener = new ProcessingFileOpener();
 		ProcessingImageHandler imageHandler = new ProcessingImageHandler(app, fileOpener);
 		return new MapFile<PImage>(filename, fileOpener, imageHandler);

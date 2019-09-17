@@ -1,4 +1,4 @@
-package main;
+package gameScreen;
 
 import java.util.ArrayList;
 import core.LayerGroup;
@@ -9,11 +9,12 @@ import core.TextObject;
 import core.Tile;
 import core.TileLayer;
 import core.TileObject;
+import main.Boilerplate;
 import processing.core.PApplet;
 import processing.core.PImage;
 
 public class UiMap {
-	BlueLagoon app;
+	GameScreen parent;
 
 	MapFile<PImage> map;
 
@@ -35,30 +36,30 @@ public class UiMap {
 	ArrayList<ToolTip> tooltips;
 
 	@SuppressWarnings("unchecked")
-	UiMap(BlueLagoon app, String filePath) {
-		this.app = app;
+	public UiMap(GameScreen parent, PApplet app, String filePath) {
+		this.parent = parent;
 		map = Boilerplate.openMap(app, filePath);
 
-		staticTiles = (TileLayer<PImage>) map.getLayerByName("Static Tiles");
-		staticText = (ObjectLayer<PImage>) map.getLayerByName("Static Text");
-		spawns = (ObjectLayer<PImage>) map.getLayerByName("Spawns");
-		ObjectLayer<PImage> areas = (ObjectLayer<PImage>) map.getLayerByName("Areas");
-		LayerGroup<PImage> infoPanelGroup = (LayerGroup<PImage>) map.getLayerByName("Player Info Panel");
+		staticTiles = map.getLayerByName("Static Tiles").asTiles();
+		staticText = map.getLayerByName("Static Text").asObjects();
+		spawns = map.getLayerByName("Spawns").asObjects();
+		ObjectLayer<PImage> areas = map.getLayerByName("Areas").asObjects();
+		LayerGroup<PImage> infoPanelGroup = map.getLayerByName("Player Info Panel").asGroup();
 
-		staticInfoPanel = new PlayerInfoPanel(app, map, 1, infoPanelGroup);
+		staticInfoPanel = new PlayerInfoPanel(parent, map, 1, infoPanelGroup);
 
-		connectionStatusMessage = (TextObject) spawns.getObjectByName("Connection Status");
-		hostColorIndicator = (TileObject<PImage>) spawns.getObjectByName("Host Color");
-		turnCountMessage = (TextObject) spawns.getObjectByName("Turn Count");
+		connectionStatusMessage = spawns.getObjectByName("Connection Status").asText();
+		hostColorIndicator = spawns.getObjectByName("Host Color").asTile();
+		turnCountMessage = spawns.getObjectByName("Turn Count").asText();
 
 		// Get all the rank and player objects.
-		rankNames = new ArrayList<TextObject>(4);
-		rankColorIndicators = new ArrayList<TileObject<PImage>>(4);
+		rankNames = new ArrayList<>(4);
+		rankColorIndicators = new ArrayList<>(4);
 		for (int i = 1; i <= 4; i++) {
-			rankNames.add((TextObject) spawns.getObjectByName("Rank " + i + " Name"));
-			rankColorIndicators.add((TileObject<PImage>) spawns.getObjectByName("Rank " + i + " Color"));
-			app.players[i - 1].nameObject = (TextObject) spawns.getObjectByName("Player " + i + " Name");
-			app.players[i - 1].colorIndicator = (TileObject<PImage>) spawns.getObjectByName("Player " + i + " Color");
+			rankNames.add(spawns.getObjectByName("Rank " + i + " Name").asText());
+			rankColorIndicators.add(spawns.getObjectByName("Rank " + i + " Color").asTile());
+			parent.players[i - 1].nameObject = spawns.getObjectByName("Player " + i + " Name").asText();
+			parent.players[i - 1].colorIndicator = spawns.getObjectByName("Player " + i + " Color").asTile();
 		}
 
 		// Disable all the indicator tiles. They only exist for metadata.
@@ -67,13 +68,13 @@ public class UiMap {
 		}
 
 		TMXObject boardArea = areas.getObjectByName("Board Area");
-		app.board.offsetX += boardArea.position.x;
-		app.board.offsetY += boardArea.position.y;
+		parent.board.offsetX += boardArea.position.x;
+		parent.board.offsetY += boardArea.position.y;
 
 		// Create tooltips.
 		tooltips = new ArrayList<ToolTip>();
-		LayerGroup<PImage> resourceTooltipTemplate = (LayerGroup<PImage>) map.getLayerByName("Resource Tooltip");
-		ArrayList<LayerGroup<PImage>> tooltipTemplates = new ArrayList<LayerGroup<PImage>>(4);
+		LayerGroup<PImage> resourceTooltipTemplate = map.getLayerByName("Resource Tooltip").asGroup();
+		ArrayList<LayerGroup<PImage>> tooltipTemplates = new ArrayList<>(4);
 		tooltipTemplates.add(resourceTooltipTemplate);
 		try {
 			tooltipTemplates.add((LayerGroup<PImage>) resourceTooltipTemplate.clone());
@@ -105,13 +106,13 @@ public class UiMap {
 
 	}
 
-	void draw() {
+	public void draw(PApplet app) {
 		Boilerplate.drawOrthoStaticLayer(app, map, staticTiles);
 		Boilerplate.drawObjectLayer(app, staticText);
 		Boilerplate.drawObjectLayer(app, spawns);
-		staticInfoPanel.draw();
+		staticInfoPanel.draw(app);
 		if (floatingInfoPanelIsVisible) {
-			floatingInfoPanel.draw();
+			floatingInfoPanel.draw(app);
 		}
 		for (ToolTip tooltip : tooltips) {
 			tooltip.draw();
@@ -138,15 +139,15 @@ public class UiMap {
 			this.app = app;
 			this.triggerArea = triggerArea;
 			this.parentMap = parentMap;
-			staticTiles = (TileLayer<PImage>) template.getLayerByName("Static Tiles");
-			staticText = (ObjectLayer<PImage>) template.getLayerByName("Static Text");
+			staticTiles = template.getLayerByName("Static Tiles").asTiles();
+			staticText = template.getLayerByName("Static Text").asObjects();
 			offsetX = (int) template.offset.x;
 			offsetY = (int) template.offset.y;
 			if (resourceIcon != null) {
 				spawns = (ObjectLayer<PImage>) template.getLayerByName("Spawns");
 				ArrayList<TMXObject> icons = spawns.getObjectsByName("Resource Icon");
 				for (TMXObject object : icons) {
-					TileObject<PImage> castObject = (TileObject<PImage>) object;
+					TileObject<PImage> castObject = object.asTile();
 					castObject.tile = resourceIcon;
 				}
 
