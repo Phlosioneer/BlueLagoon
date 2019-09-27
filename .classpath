@@ -2,18 +2,30 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="data"/>
-	<classpathentry kind="lib" path="core.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/TiledMapLoader/bin/TiledMapLoader.jar">
+	<classpathentry kind="lib" path="libs/core.jar">
 		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="libs/org.eclipse.paho.client.mqttv3-1.2.1.jar" sourcepath="libs/org.eclipse.paho.client.mqttv3-1.2.1-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:platform:/resource/BlueLagoon/libs/org.eclipse.paho.client.mqttv3-1.2.1-javadoc.jar!/"/>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="libs/TiledMapLoader.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="libs/gson-2.8.5.jar" sourcepath="libs/gson-2.8.5-sources.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:platform:/resource/BlueLagoon/libs/gson-2.8.5-javadoc.jar!/"/>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>

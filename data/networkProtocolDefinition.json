@@ -1,0 +1,137 @@
+{
+	"enums": [
+		{
+			"name": "Color",
+			"values": ["blue", "green", "red", "yellow"]
+		},
+		{
+			"name": "Piece",
+			"values": ["wood", "ore", "gems", "bread", "gold", "piece", "hut"]
+		}
+	],
+	"typeFieldName": "message",
+	"messages": [
+		{
+			"type": "NewGame",
+			"topic": "String",
+			"name": "String"			
+		},
+		{
+			"type": "GameStarted",
+			"topic": "String"
+		},
+		{
+			"type": "ListGames"
+		},
+		{
+			"type": "JoinRequest",
+			"clientId": "String",
+			"username": "String"
+		},
+		{
+			"type": "JoinSuccess",
+			"clientId": "String"
+		},
+		{
+			"type": "JoinColorToken",
+			"clientId": "String"
+		},
+		{
+			"type": "JoinNameToken",
+			"clientId": "String"
+		},
+		{
+			"type": "Players",
+			"hostColor": "Color",
+			"players": {
+				"type": "Array",
+				"innerType": {
+					"name": "String",
+					"color": "Color",
+					"isPlayer": "Boolean",
+					"clientId": "String"
+				}
+			}
+		},
+		{
+			"type": "LastWill",
+			"clientId": "String"
+		},
+		{
+			"type": "UnrecognizedPlayer",
+			"clientId": "String"
+		},
+		{
+			"type": "TurnOrder",
+			"order": {
+				"type": "Array",
+				"innerType": "Color"
+			}
+		},
+		{
+			"type": "PlayPiece",
+			"color": "Color",
+			"piece": "String",
+			"x": "int",
+			"y": "int"
+		},
+		{
+			"type": "CurrentTurn",
+			"color": "Color"
+		},
+		{
+			"type": "RoundOneScores",
+			"scores": {
+				"type": "Array",
+				"innerType": {
+					"color": "Color",
+					"score": "int"
+				}
+			}
+		},
+		{
+			"type": "FinalScores",
+			"scores": {
+				"type": "Array",
+				"innerType": {
+					"color": "Color",
+					"score": "int"
+				}
+			}
+		},
+		{
+			"type": "Conceded",
+			"color": "Color"
+		},
+		{
+			"type": "HostConcede",
+			"oldColor": "Color",
+			"newColor": "Color"
+		},
+		{
+			"type": "KickedComputerStandin",
+			"color": "Color",
+			"newName": "String"
+		},
+		{
+			"type": "JoinTakeover",
+			"clientId": "String"
+		},
+		{
+			"type": "KickedGamePause",
+			"color": "Color"
+		},
+		{
+			"type": "KickedGameResume",
+			"color": "Color",
+			"name": "String"
+		},
+		{
+			"type": "KicedForcedConcede",
+			"color": "Color"
+		},
+		{
+			"type": "NoPreviousRounds"
+		}
+	]
+}

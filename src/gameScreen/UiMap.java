@@ -40,11 +40,13 @@ public class UiMap {
 		this.parent = parent;
 		map = Boilerplate.openMap(app, filePath);
 
-		staticTiles = map.getLayerByName("Static Tiles").asTiles();
-		staticText = map.getLayerByName("Static Text").asObjects();
-		spawns = map.getLayerByName("Spawns").asObjects();
-		ObjectLayer<PImage> areas = map.getLayerByName("Areas").asObjects();
-		LayerGroup<PImage> infoPanelGroup = map.getLayerByName("Player Info Panel").asGroup();
+		LayerGroup<PImage> root = map.root;
+
+		staticTiles = root.getLayerByName("Static Tiles").asTiles();
+		staticText = root.getLayerByName("Static Text").asObjects();
+		spawns = root.getLayerByName("Spawns").asObjects();
+		ObjectLayer<PImage> areas = root.getLayerByName("Areas").asObjects();
+		LayerGroup<PImage> infoPanelGroup = root.getLayerByName("Player Info Panel").asGroup();
 
 		staticInfoPanel = new PlayerInfoPanel(parent, map, 1, infoPanelGroup);
 
@@ -73,7 +75,7 @@ public class UiMap {
 
 		// Create tooltips.
 		tooltips = new ArrayList<ToolTip>();
-		LayerGroup<PImage> resourceTooltipTemplate = map.getLayerByName("Resource Tooltip").asGroup();
+		LayerGroup<PImage> resourceTooltipTemplate = root.getLayerByName("Resource Tooltip").asGroup();
 		ArrayList<LayerGroup<PImage>> tooltipTemplates = new ArrayList<>(4);
 		tooltipTemplates.add(resourceTooltipTemplate);
 		try {
@@ -87,18 +89,19 @@ public class UiMap {
 		for (int i = 0; i < tooltipNames.length; i++) {
 			String name = tooltipNames[i];
 			LayerGroup<PImage> template = null;
+			TMXObject tooltipArea = null;
+			Tile<PImage> iconTile = null;
 			if (i < 4) {
+				// The 4 basic resources have dynamically placed tooltips.
 				template = tooltipTemplates.get(i);
+				tooltipArea = areas.getObjectByName(name + " Tooltip Area");
+				iconTile = ((TileObject<PImage>) spawns.getObjectByName(name)).tile;
+
 			} else {
-				template = (LayerGroup<PImage>) map.getLayerByName(name + " Tooltip");
+				// The rest of the tooltips are placed in the correct spot already.
+				template = (LayerGroup<PImage>) root.getLayerByName(name + " Tooltip");
 			}
 			TMXObject triggerArea = areas.getObjectByName(name + " Tooltip Trigger Area");
-			TMXObject tooltipArea = areas.getObjectByName(name + " Tooltip Area");
-			TileObject<PImage> icon = (TileObject<PImage>) spawns.getObjectByName(name);
-			Tile<PImage> iconTile = null;
-			if (icon != null) {
-				iconTile = icon.tile;
-			}
 			ToolTip tooltip = new ToolTip(app, map, template, triggerArea, tooltipArea, iconTile);
 			tooltips.add(tooltip);
 		}

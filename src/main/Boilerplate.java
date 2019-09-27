@@ -1,6 +1,7 @@
 package main;
 
 import java.awt.Image;
+import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import javax.imageio.ImageIO;
@@ -15,43 +16,39 @@ import core.TileObject;
 import processing.core.PApplet;
 import processing.core.PConstants;
 import processing.core.PImage;
-import util.FileLocatorDelegate;
-import util.ImageDelegate;
 import util.Rect;
+import util.ResourceLoaderDelegate;
 
 public class Boilerplate {
 
 	public static MapFile<PImage> openMap(PApplet app, String filename) {
-		ProcessingFileOpener fileOpener = new ProcessingFileOpener();
-		ProcessingImageHandler imageHandler = new ProcessingImageHandler(app, fileOpener);
-		return new MapFile<PImage>(filename, fileOpener, imageHandler);
+		ProcessingDelegate fileOpener = new ProcessingDelegate(app);
+
+		return new MapFile<PImage>(filename, fileOpener);
 	}
 
-	private static class ProcessingFileOpener implements FileLocatorDelegate {
+	private static class ProcessingDelegate implements ResourceLoaderDelegate<PImage> {
+		private PApplet app;
+
+		public ProcessingDelegate(PApplet app) {
+			this.app = app;
+		}
+
 		@Override
-		public InputStream openFile(String filename) {
+		public InputStream openFile(String filename, String baseDirectory) {
 			String correctedName = filename;
 			if (filename.startsWith("data/")) {
 				correctedName = filename.substring(5);
 			}
-			return getClass().getClassLoader().getResourceAsStream(correctedName);
-		}
-	}
-
-	private static class ProcessingImageHandler implements ImageDelegate<PImage> {
-		private PApplet app;
-		private FileLocatorDelegate fileLocator;
-
-		public ProcessingImageHandler(PApplet app, FileLocatorDelegate fileLocator) {
-			this.app = app;
-			this.fileLocator = fileLocator;
+			InputStream rawStream = getClass().getClassLoader().getResourceAsStream(correctedName);
+			return new BufferedInputStream(rawStream);
 		}
 
 		@Override
-		public PImage loadImage(String filename, TMXColor transparentColor) {
+		public PImage loadImage(InputStream fileStream, TMXColor transparentColor) {
 			PImage ret;
 			try {
-				Image rawImage = ImageIO.read(fileLocator.openFile(filename));
+				Image rawImage = ImageIO.read(fileStream);
 				ret = new PImage(rawImage);
 			} catch (IOException e) {
 				throw new RuntimeException("Exception handler not yet implemented", e);

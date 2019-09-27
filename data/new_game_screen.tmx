@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="25" height="16" tilewidth="50" tileheight="50" infinite="0" nextlayerid="16" nextobjectid="99">
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="25" height="16" tilewidth="50" tileheight="50" infinite="0" nextlayerid="39" nextobjectid="255">
  <tileset firstgid="1" source="ui_tileset.tsx"/>
  <layer id="1" name="Window Tiles" width="25" height="16">
   <data encoding="csv">
@@ -22,7 +22,7 @@
 </data>
  </layer>
  <group id="9" name="Host Tab">
-  <layer id="7" name="Host Tiles 1" width="25" height="16" offsetx="60" offsety="20">
+  <layer id="7" name="Static Tiles" width="25" height="16" offsetx="60" offsety="20">
    <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -42,7 +42,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
   </layer>
-  <layer id="8" name="Host Tiles 2" width="25" height="16" offsetx="90" offsety="40">
+  <layer id="8" name="Static Tiles" width="25" height="16" offsetx="90" offsety="40">
    <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -62,7 +62,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
   </layer>
-  <objectgroup draworder="index" id="6" name="Static Text">
+  <objectgroup draworder="index" id="6" name="Static Objects">
    <object id="26" gid="9" x="410" y="260" width="50" height="50"/>
    <object id="28" gid="10" x="460" y="260" width="50" height="50"/>
    <object id="14" gid="2" x="620" y="260" width="50" height="50"/>
@@ -94,22 +94,50 @@
    <object id="95" x="685" y="510" width="130" height="30">
     <text fontfamily="Poppins" wrap="1" halign="center" valign="center">Create Game</text>
    </object>
+   <object id="99" gid="1" x="730" y="260" width="50" height="50"/>
+   <object id="100" gid="3" x="790" y="260" width="50" height="50"/>
+   <object id="101" gid="2" x="750" y="260" width="50" height="50"/>
+   <object id="102" x="740" y="220" width="90" height="30">
+    <text fontfamily="Poppins" wrap="1" halign="center" valign="center">Settings</text>
+   </object>
+   <object id="199" gid="10" x="559" y="320" width="50" height="50"/>
+   <object id="138" gid="33" x="540" y="350" width="50" height="50"/>
+   <object id="139" gid="34" x="590" y="350" width="50" height="50"/>
+   <object id="140" gid="35" x="640" y="350" width="50" height="50"/>
+   <object id="142" gid="33" x="540" y="450" width="50" height="50"/>
+   <object id="143" gid="34" x="590" y="450" width="50" height="50"/>
+   <object id="144" gid="35" x="640" y="450" width="50" height="50"/>
   </objectgroup>
   <objectgroup draworder="index" id="10" name="Spawns">
-   <object id="9" name="User Name" type="Text Box" x="540" y="300" width="150" height="50"/>
-   <object id="18" gid="5" x="540" y="550" width="50" height="50"/>
-   <object id="19" gid="13" x="595" y="550" width="50" height="50"/>
-   <object id="20" gid="21" x="540" y="610" width="50" height="50"/>
-   <object id="21" gid="29" x="595" y="610" width="50" height="50"/>
-   <object id="25" name="Match Name" type="Text Box" x="540" y="400" width="150" height="50"/>
-   <object id="45" gid="6" x="540" y="550" width="50" height="50"/>
-   <object id="46" gid="14" x="595" y="550" width="50" height="50"/>
-   <object id="47" gid="22" x="540" y="610" width="50" height="50"/>
-   <object id="48" gid="30" x="595" y="610" width="50" height="50"/>
+   <object id="18" name="Blue Piece" gid="5" x="535" y="550" width="50" height="50"/>
+   <object id="19" name="Yellow Piece" gid="13" x="595" y="550" width="50" height="50"/>
+   <object id="20" name="Red Piece" gid="21" x="535" y="610" width="50" height="50"/>
+   <object id="21" name="Green Piece" gid="29" x="595" y="610" width="50" height="50"/>
+   <object id="45" name="Blue Hut" gid="6" x="535" y="550" width="50" height="50"/>
+   <object id="46" name="Yellow Hut" gid="14" x="595" y="550" width="50" height="50"/>
+   <object id="47" name="Red Hut" gid="22" x="535" y="610" width="50" height="50"/>
+   <object id="48" name="Green Hut" gid="30" x="595" y="610" width="50" height="50"/>
+   <object id="141" name="Username Text" x="550" y="310" width="130" height="30">
+    <text fontfamily="Poppins" wrap="1" valign="center">Hello World</text>
+   </object>
+   <object id="145" name="Match Name Text" x="550" y="410" width="130" height="30">
+    <text fontfamily="Poppins" wrap="1" valign="center">Hello World</text>
+   </object>
+  </objectgroup>
+  <objectgroup id="24" name="Areas">
+   <object id="148" name="Username Area" x="540" y="300" width="150" height="50"/>
+   <object id="149" name="Match Name Area" x="540" y="400" width="150" height="50"/>
+   <object id="150" name="Create Game Button" x="675" y="500" width="150" height="50"/>
+   <object id="151" name="Blue Color Area" x="535" y="500" width="50" height="50"/>
+   <object id="152" name="Yellow Color Area" x="595" y="500" width="50" height="50"/>
+   <object id="153" name="Red Color Area" x="535" y="560" width="50" height="50"/>
+   <object id="154" name="Green Color Area" x="595" y="560" width="50" height="50"/>
+   <object id="155" name="Join Tab Button" x="570" y="210" width="150" height="50"/>
+   <object id="156" name="Settings Tab Button" x="730" y="210" width="110" height="50"/>
   </objectgroup>
  </group>
  <group id="11" name="Join Tab" visible="0">
-  <layer id="13" name="Copy of Host Tiles 1" width="25" height="16" offsetx="60" offsety="20">
+  <layer id="13" name="Static Tiles" width="25" height="16" offsetx="60" offsety="20">
    <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -129,7 +157,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
   </layer>
-  <layer id="12" name="Copy of Host Tiles 2" width="25" height="16" offsetx="90" offsety="40">
+  <layer id="12" name="Static Tiles" width="25" height="16" offsetx="90" offsety="40">
    <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -149,10 +177,10 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
   </layer>
-  <objectgroup id="15" name="Object Layer 4">
+  <objectgroup id="15" name="Static Objects">
    <object id="62" gid="25" x="410" y="640" width="50" height="50"/>
   </objectgroup>
-  <layer id="14" name="Tile Layer 6" width="25" height="16" offsetx="20" offsety="30">
+  <layer id="14" name="Static Tiles" width="25" height="16" offsetx="20" offsety="30">
    <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -172,7 +200,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
   </layer>
-  <objectgroup draworder="index" id="5" name="Join Tab">
+  <objectgroup draworder="index" id="5" name="Static Objects">
    <object id="49" gid="9" x="570" y="260" width="50" height="50"/>
    <object id="50" gid="10" x="620" y="260" width="50" height="50"/>
    <object id="51" gid="2" x="460" y="260" width="50" height="50"/>
@@ -190,57 +218,216 @@
    <object id="59" gid="10" x="521" y="320" width="50" height="50"/>
    <object id="60" gid="10" x="719" y="320" width="50" height="50"/>
    <object id="61" gid="11" x="790" y="320" width="50" height="50"/>
-   <object id="24" name="User Name" type="Text Box" x="540" y="300" width="150" height="50"/>
    <object id="63" x="420" y="310" width="120" height="30">
     <text fontfamily="Poppins" wrap="1" valign="center">User Name:</text>
    </object>
-   <object id="79" gid="1" x="425" y="435" width="50" height="50"/>
-   <object id="80" gid="2" x="470" y="435" width="50" height="50"/>
-   <object id="81" gid="3" x="565" y="435" width="50" height="50"/>
-   <object id="82" gid="2" x="520" y="435" width="50" height="50"/>
-   <object id="83" gid="1" x="425" y="490" width="50" height="50"/>
-   <object id="84" gid="2" x="470" y="490" width="50" height="50"/>
-   <object id="85" gid="3" x="565" y="490" width="50" height="50"/>
-   <object id="86" gid="2" x="520" y="490" width="50" height="50"/>
-   <object id="87" gid="1" x="425" y="545" width="50" height="50"/>
-   <object id="88" gid="2" x="470" y="545" width="50" height="50"/>
-   <object id="89" gid="3" x="565" y="545" width="50" height="50"/>
-   <object id="90" gid="2" x="520" y="545" width="50" height="50"/>
-   <object id="91" gid="1" x="425" y="600" width="50" height="50"/>
-   <object id="92" gid="2" x="470" y="600" width="50" height="50"/>
-   <object id="93" gid="3" x="565" y="600" width="50" height="50"/>
-   <object id="94" gid="2" x="520" y="600" width="50" height="50"/>
-   <object id="64" x="435" y="395" width="130" height="30">
+   <object id="107" gid="1" x="730" y="260" width="50" height="50"/>
+   <object id="108" gid="3" x="790" y="260" width="50" height="50"/>
+   <object id="109" gid="2" x="750" y="260" width="50" height="50"/>
+   <object id="110" x="740" y="220" width="90" height="30">
+    <text fontfamily="Poppins" wrap="1" halign="center" valign="center">Settings</text>
+   </object>
+   <object id="113" gid="33" x="540" y="350" width="50" height="50"/>
+   <object id="114" gid="34" x="590" y="350" width="50" height="50"/>
+   <object id="115" gid="35" x="640" y="350" width="50" height="50"/>
+  </objectgroup>
+  <group id="26" name="Choose Color Section">
+   <objectgroup draworder="index" id="27" name="Static Objects">
+    <object id="76" x="640" y="390" width="190" height="30">
+     <text wrap="1" valign="center">Choose a color to join:</text>
+    </object>
+    <object id="157" gid="1" x="650" y="610" width="50" height="50"/>
+    <object id="158" gid="2" x="700" y="610" width="50" height="50"/>
+    <object id="159" gid="3" x="750" y="610" width="50" height="50"/>
+    <object id="160" x="660" y="570" width="130" height="30">
+     <text fontfamily="Poppins" wrap="1" halign="center" valign="center">Join Game</text>
+    </object>
+   </objectgroup>
+   <objectgroup draworder="index" id="29" name="Spawn">
+    <object id="72" name="Blue Piece" gid="5" x="670" y="480" width="50" height="50"/>
+    <object id="73" name="Yellow Piece" gid="13" x="730" y="480" width="50" height="50"/>
+    <object id="74" name="Red Piece" gid="21" x="670" y="540" width="50" height="50"/>
+    <object id="75" name="Green Piece" gid="29" x="730" y="540" width="50" height="50"/>
+    <object id="161" name="Blue Hut" gid="6" x="670" y="480" width="50" height="50"/>
+    <object id="162" name="Yellow Hut" gid="14" x="730" y="480" width="50" height="50"/>
+    <object id="163" name="Red Hut" gid="22" x="670" y="540" width="50" height="50"/>
+    <object id="164" gid="30" x="730" y="540" width="50" height="50"/>
+   </objectgroup>
+   <objectgroup id="30" name="Areas">
+    <object id="165" name="Blue Color Area" x="670" y="430" width="50" height="50"/>
+    <object id="166" name="Yellow Color Area" x="730" y="430" width="50" height="50"/>
+    <object id="167" name="Red Color Area" x="670" y="490" width="50" height="50"/>
+    <object id="168" name="Green Color Area" x="730" y="490" width="50" height="50"/>
+    <object id="169" name="Join Game Button" x="650" y="560" width="150" height="50"/>
+   </objectgroup>
+  </group>
+  <objectgroup draworder="index" id="25" name="Spawns">
+   <object id="116" name="Username Text" x="550" y="310" width="130" height="30">
     <text fontfamily="Poppins" wrap="1" valign="center">Hello World</text>
    </object>
-   <object id="65" x="575" y="395" width="30" height="30">
-    <text fontfamily="Poppins" wrap="1" halign="center" valign="center">42</text>
-   </object>
-   <object id="66" x="435" y="450" width="130" height="30">
+   <object id="79" type="Entry" gid="1" x="425" y="435" width="50" height="50"/>
+   <object id="80" type="Entry" gid="2" x="470" y="435" width="50" height="50"/>
+   <object id="81" type="Entry" gid="3" x="565" y="435" width="50" height="50"/>
+   <object id="82" type="Entry" gid="2" x="520" y="435" width="50" height="50"/>
+   <object id="64" name="Game Name" type="Entry" x="435" y="395" width="130" height="30">
     <text fontfamily="Poppins" wrap="1" valign="center">Hello World</text>
    </object>
-   <object id="67" x="575" y="450" width="30" height="30">
+   <object id="65" name="Player Count" type="Entry" x="575" y="395" width="30" height="30">
     <text fontfamily="Poppins" wrap="1" halign="center" valign="center">42</text>
    </object>
-   <object id="68" x="435" y="505" width="130" height="30">
+  </objectgroup>
+  <objectgroup id="31" name="Areas">
+   <object id="170" name="Username Area" x="540" y="300" width="150" height="50"/>
+   <object id="171" name="Entry 1 Area" x="425" y="385" width="190" height="50"/>
+   <object id="172" name="Entry 2 Area" x="425" y="445" width="190" height="50"/>
+   <object id="173" name="Settings Tab Button" x="730" y="210" width="110" height="50"/>
+   <object id="174" name="Host Tab Button" x="410" y="210" width="150" height="50"/>
+   <object id="175" name="Entry 3 Area" x="425" y="505" width="190" height="50"/>
+   <object id="176" name="Entry 3 Area" x="425" y="565" width="190" height="50"/>
+  </objectgroup>
+ </group>
+ <group id="32" name="Server Tab" visible="0">
+  <layer id="34" name="Static Tiles" width="25" height="16" offsetx="10" offsety="20">
+   <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,9,10,10,10,10,10,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+  </layer>
+  <layer id="35" name="Static Tiles" width="25" height="16" offsetx="-10" offsety="-10">
+   <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,19,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,19,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,19,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,19,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,19,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,19,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,19,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,26,26,26,26,26,26,26,27,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+  </layer>
+  <objectgroup draworder="index" id="33" name="Static Objects">
+   <object id="197" gid="17" x="730" y="271" width="50" height="50"/>
+   <object id="177" gid="1" x="570" y="260" width="50" height="50"/>
+   <object id="178" gid="2" x="620" y="260" width="50" height="50"/>
+   <object id="179" gid="2" x="460" y="260" width="50" height="50"/>
+   <object id="180" gid="3" x="670" y="260" width="50" height="50"/>
+   <object id="181" gid="1" x="410" y="260" width="50" height="50"/>
+   <object id="182" gid="3" x="510" y="260" width="50" height="50"/>
+   <object id="185" x="580" y="220" width="130" height="30">
+    <text fontfamily="Poppins" wrap="1" halign="center" valign="center">Join</text>
+   </object>
+   <object id="186" x="420" y="220" width="130" height="30">
+    <text fontfamily="Poppins" wrap="1" halign="center" valign="center">Host</text>
+   </object>
+   <object id="190" gid="9" x="730" y="260" width="50" height="50"/>
+   <object id="191" gid="11" x="790" y="260" width="50" height="50"/>
+   <object id="192" gid="10" x="750" y="260" width="50" height="50"/>
+   <object id="193" x="740" y="220" width="90" height="30">
+    <text fontfamily="Poppins" wrap="1" halign="center" valign="center">Settings</text>
+   </object>
+   <object id="196" gid="25" x="410" y="640" width="50" height="50"/>
+   <object id="198" gid="10" x="681" y="320" width="50" height="50"/>
+   <object id="202" x="420" y="290" width="50" height="30">
+    <text fontfamily="Poppins" wrap="1" valign="center">URL:</text>
+   </object>
+   <object id="203" x="440" y="410" width="90" height="30">
+    <text fontfamily="Poppins" wrap="1" valign="center">Username:</text>
+   </object>
+   <object id="204" x="440" y="470" width="90" height="30">
+    <text fontfamily="Poppins" wrap="1" valign="center">Password:</text>
+   </object>
+   <object id="205" x="420" y="350" width="410" height="30">
+    <text fontfamily="Poppins" wrap="1" valign="center">MQTT Connection Details</text>
+   </object>
+   <object id="206" x="440" y="530" width="90" height="30">
+    <text fontfamily="Poppins" wrap="1" valign="center">Client ID:</text>
+   </object>
+   <object id="207" x="440" y="590" width="90" height="30">
+    <text fontfamily="Poppins" wrap="1" valign="center">QoS:</text>
+   </object>
+   <object id="208" gid="33" x="470" y="330" width="50" height="50"/>
+   <object id="209" gid="35" x="780" y="330" width="50" height="50"/>
+   <object id="211" gid="35" x="780" y="450" width="50" height="50"/>
+   <object id="212" gid="35" x="780" y="510" width="50" height="50"/>
+   <object id="213" gid="35" x="780" y="570" width="50" height="50"/>
+   <object id="215" gid="33" x="540" y="450" width="50" height="50"/>
+   <object id="216" gid="33" x="540" y="510" width="50" height="50"/>
+   <object id="217" gid="33" x="520" y="570" width="50" height="50"/>
+   <object id="218" gid="36" x="490" y="630" width="50" height="50"/>
+   <object id="219" gid="34" x="520" y="330" width="50" height="50"/>
+   <object id="220" gid="34" x="570" y="330" width="50" height="50"/>
+   <object id="221" gid="34" x="620" y="330" width="50" height="50"/>
+   <object id="222" gid="34" x="670" y="330" width="50" height="50"/>
+   <object id="223" gid="34" x="720" y="330" width="50" height="50"/>
+   <object id="224" gid="34" x="590" y="450" width="50" height="50"/>
+   <object id="225" gid="34" x="640" y="450" width="50" height="50"/>
+   <object id="226" gid="34" x="690" y="450" width="50" height="50"/>
+   <object id="227" gid="34" x="740" y="450" width="50" height="50"/>
+   <object id="228" gid="34" x="590" y="510" width="50" height="50"/>
+   <object id="229" gid="34" x="640" y="510" width="50" height="50"/>
+   <object id="230" gid="34" x="690" y="510" width="50" height="50"/>
+   <object id="231" gid="34" x="740" y="510" width="50" height="50"/>
+   <object id="232" gid="34" x="570" y="570" width="50" height="50"/>
+   <object id="233" gid="34" x="620" y="570" width="50" height="50"/>
+   <object id="234" gid="34" x="670" y="570" width="50" height="50"/>
+   <object id="235" gid="34" x="720" y="570" width="50" height="50"/>
+   <object id="236" gid="34" x="750" y="330" width="50" height="50"/>
+   <object id="237" gid="34" x="740" y="570" width="50" height="50"/>
+   <object id="238" gid="1" x="680" y="630" width="50" height="50"/>
+   <object id="239" gid="2" x="730" y="630" width="50" height="50"/>
+   <object id="240" gid="3" x="780" y="630" width="50" height="50"/>
+   <object id="241" x="690" y="590" width="130" height="30">
+    <text fontfamily="Poppins" wrap="1" valign="center">Restore Defaults</text>
+   </object>
+  </objectgroup>
+  <objectgroup id="37" name="Spawns">
+   <object id="242" name="URL Text" x="480" y="290" width="340" height="30">
     <text fontfamily="Poppins" wrap="1" valign="center">Hello World</text>
    </object>
-   <object id="69" x="575" y="505" width="30" height="30">
-    <text fontfamily="Poppins" wrap="1" halign="center" valign="center">42</text>
-   </object>
-   <object id="70" x="435" y="560" width="130" height="30">
+   <object id="243" name="Username Text" x="550" y="410" width="270" height="30">
     <text fontfamily="Poppins" wrap="1" valign="center">Hello World</text>
    </object>
-   <object id="71" x="575" y="560" width="30" height="30">
+   <object id="244" name="Password Text" x="550" y="470" width="270" height="30">
+    <text fontfamily="Poppins" wrap="1" valign="center">Hello World</text>
+   </object>
+   <object id="245" name="Client ID Text" x="530" y="530" width="290" height="30">
+    <text fontfamily="Poppins" wrap="1" valign="center">Hello World</text>
+   </object>
+   <object id="246" name="QoS Text" x="500" y="590" width="30" height="30">
     <text fontfamily="Poppins" wrap="1" halign="center" valign="center">42</text>
    </object>
-   <object id="72" gid="5" x="674" y="525" width="50" height="50"/>
-   <object id="73" gid="13" x="735" y="525" width="50" height="50"/>
-   <object id="74" gid="21" x="674" y="585" width="50" height="50"/>
-   <object id="75" gid="29" x="735" y="585" width="50" height="50"/>
-   <object id="76" x="640" y="410" width="190" height="30">
-    <text wrap="1" valign="center">Choose a color to join:</text>
-   </object>
+  </objectgroup>
+  <objectgroup id="38" name="Areas">
+   <object id="247" name="Host Tab Button" x="410" y="210" width="150" height="50"/>
+   <object id="248" name="Join Tab Button" x="570" y="210" width="150" height="50"/>
+   <object id="249" name="URL Area" x="470" y="280" width="360" height="50"/>
+   <object id="250" name="Username Area" x="540" y="400" width="290" height="50"/>
+   <object id="251" name="Password Area" x="540" y="460" width="290" height="50"/>
+   <object id="252" name="Client ID Area" x="520" y="520" width="310" height="50"/>
+   <object id="253" name="QoS Area" x="490" y="580" width="50" height="50"/>
+   <object id="254" name="Restore Defaults Button" x="680" y="580" width="150" height="50"/>
   </objectgroup>
  </group>
 </map>

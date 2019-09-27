@@ -1,6 +1,7 @@
 package gameScreen;
 
 import java.util.ArrayList;
+import core.LayerGroup;
 import core.MapFile;
 import core.ObjectLayer;
 import core.TMXObject;
@@ -46,17 +47,19 @@ public class MainMap {
 		assert (map.orientation == MapFile.Orientation.HEXAGONAL);
 		assert (map.staggerAxis == MapFile.StaggerAxis.Y);
 		assert (map.staggerIndex == MapFile.StaggerIndex.ODD);
-		assert (map.renderOrder == MapFile.RenderOrder.RIGHT_DOWN);
+		assert (map.renderOrder == MapFile.TileRenderOrder.RIGHT_DOWN);
 
 		hexSideLength = (int) map.getHexSideLength();
 
-		backgroundOcean = map.getLayerByName("Background Ocean").asTiles();
-		backgroundTerrain = map.getLayerByName("Map").asTiles();
-		backgroundTowns = map.getLayerByName("Towns").asObjects();
-		backgroundGrid = map.getLayerByName("Hex Grid").asTiles();
-		spawns = map.getLayerByName("Spawns").asObjects();
-		pieces = map.getLayerByName("Player Pieces").asTiles();
-		ObjectLayer<PImage> areas = map.getLayerByName("Areas").asObjects();
+		LayerGroup<PImage> root = map.root;
+
+		backgroundOcean = root.getLayerByName("Background Ocean").asTiles();
+		backgroundTerrain = root.getLayerByName("Map").asTiles();
+		backgroundTowns = root.getLayerByName("Towns").asObjects();
+		backgroundGrid = root.getLayerByName("Hex Grid").asTiles();
+		spawns = root.getLayerByName("Spawns").asObjects();
+		pieces = root.getLayerByName("Player Pieces").asTiles();
+		ObjectLayer<PImage> areas = root.getLayerByName("Areas").asObjects();
 
 		// Make everything invisible unless we tell it otherwise.
 		for (TMXObject obj : spawns.objects) {
