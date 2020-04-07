@@ -3,38 +3,63 @@
 
 For this game, all topics are prefixed with `BlueLagoon/`.
 
+All messages are idempotent (i.e. they may be sent or recieved multiple times without affecting the logic of this protocol).
 
-## Hosting a Game
+# Hosting a Game
+
+## New Games
 
 New games will be published to `BlueLagoon/Games`. The published game will be a single 
 post, with the form:
 
 ```json
-{"message":"NewGame", "topic": string, "name": string}
+{"message":"NewGame", "topic": string, "name": string, "startUTC": number, "clientId": string}
 ```
 
-The name will match the regex `[a-zA-Z0-9 ]+`. The topic will be the same 
-as the gameName, except
-that spaces are replaced with underscores.
+The `name` field will match the regex `[a-zA-Z0-9 ]+`. The `topic` field will be the same 
+as the `name`, except that spaces are replaced with underscores. The `startUTC` field is the
+unix time that the first `NewGame` message was sent. `clientId` is the name of the hosting
+client.
+
+#### Edge cases
+
+If two games with the same name are posted, the game with the lowest `startUTC` field has priority.
+When the host of the game with priority recieves a `NewGame` message with the same name, they must
+re-transmit their original `NewGame` message.
+
+If a game with the same name as a game-in-progress is posted, the game-in-progess has priority until
+a `LastWill` message for the original host is posted. 
+
+## Beginning the game
 
 When the game begins, the host will publish to `BlueLagoon/Games`:
+
 ```json
-{"message":"GameStarted", "topic": string}
+{"message":"GameStarted", "topic": string, "startUTC": number}
 ```
 
+## Listing current games
+
 Any client may send the message:
+
 ```json
 {"message":"ListGames"}
 ```
-All clients hosting games will then re-send their NewGame messages or their GameStarted 
+
+All clients hosting games will then re-send their `NewGame` messages or their `GameStarted` 
 messages.
 
-## Game Lobby
+### Edge cases
+
+If multiple `ListGames` messages are posted before a host can respond, the host only needs to send
+one message to satisfy both requests.
+
+# Game Lobby
 
 When a game is created, all communication for that game will happen on the topic
 `BlueLagoon/Game/<topic>`
 
-### Joining a Game
+## Joining a Game
 
 When a client joins a game, they will post a query with the form:
 
@@ -42,74 +67,84 @@ When a client joins a game, they will post a query with the form:
 {"message":"JoinRequest", "clientId": string, "color": string, "username": string}
 ```
 
-The color is one of "red", "blue", "green", "yellow". The username can be any ascii
-string without a newline (`\n`) character. (Usernames can have length 0).
+The `color` field is one of "red", "blue", "green", "yellow". The `username` can be any ascii
+string without a newline (`\n`) character or a null (`\0`) character. (Usernames can have length 0).
 
-The host will then reply with one of the following:
+The host will then reply with:
+
 ```json
-// Successful join:
-{"message":"JoinSuccess", "clientId": string}
-
-// Color already taken:
-{"message":"JoinColorTaken", "clientId": string}
-
-// Name already taken:
-{"message":"JoinNameTaken", "clientId": string}
+{"message":"JoinResponse", "success": bool, "reason": string, "players": [Player], "clientId": string}
 ```
 
-Where clientId is the id given in the JoinRequest.
+The `clientId` is the same as given in the `JoinRequest` message. `success` is true if the color and username were available, and
+false otherwise. `players` contains a list of [Player](#the-player-object) objects, one for each successfully joined user. When `success`
+is true, the `players` field will include the an entry for the client of this `JoinRequest`.
 
-Whenever a player joins, the host will also send a separate message with a list of the
-joined players:
+The `reason` field is one of:
+
+// TODO: Reasons
+
+## Listing Members and Adding Computer Players
+
+Any client may send the message:
+
 ```json
-{"message":"Players", "hostColor": string, "players": [{"name": string, "color": string, "isPlayer": boolean, "clientId": string}, ...]}
+{"message":"ListPlayers"}
 ```
-The message sends information about each player in the game, including the host.
-isPlayer is a boolean that is true if a human player has joined that seat, and false
-if it is empty or if it has a computer player. color is the color for that player, as
-a string. The name is that player's username. Players are listed in the order they joined.
-If for computer players, clientId is left blank, but should still be sent.
 
-### Maintaining a Connection
+The host will reply with the message:
 
-Finally, the host and each joined player will use the MQTT Last Will feature to notify the 
-server. The last will must publish on the topic `LastWills` (note: not game specific) 
+```json
+{"message":"AllPlayers", "players": [Player]}
+```
+
+The `players` field contains a list of [Player](#the-player-object) objects, one for each player.
+
+When the host adds a new computer player, they should (but are not required to) send an `AllPlayers` message.
+
+### Edge Cases
+
+If multiple `ListPlayers` messages are sent before the host can reply, the host only needs to send
+one message to satisfy both requests.
+
+## Maintaining a Connection
+
+The host and each joined player will use the MQTT Last Will feature to notify the 
+server of disconnect. The last will must publish on the topic `LastWills` (note: not game specific) 
 the following message:
+
 ```json
 {"message":"LastWill", "clientId": string}
 ```
 
-### Kicking Joined Players
+## Kicking Joined Players, Rejoining Games
 
-If a ping message is sent, but the clientId does not match the host or any of the
-joined players, then the following message will be posted to the game topic:
+The host may remove a player by sending the message:
+
 ```json
-{"message":"UnrecognizedPlayer", "clientId": string}
+{"message":"Replace", "reason": string, "players": [Player]}
 ```
-Where clientId is the id that does not match. This situation happens if a player
-loses connection, but does not realize they lost connection. They will ping when
-the connection returns, and this message will inform them that they have been
-kicked from the game.
+
+The `reason` field contains an optional message for the change. The `players` field contains an updated array
+of the players in the game.
+
 
 ## Transmitting the Game State
 
 ### Turn Order
 
-When the host begins the game, they will generate the map, and will generate a random 
-player order. The host will send the player order with the message:
-```json
-{"message":"TurnOrder", "order": [string, ...]}
-```
-The order field lists the player's colors.
-
-This will be followed by another Players message.
+When the host begins the game, they will generate the map, and will generate a random player order. The turn order
+is encoded inside the `Player` object, so the server will send an `AllPlayers` message at the start of the
+game.
 
 ### The Map
 
 The host sends the positions of all pieces with the message:
+
 ```json
 {"message":"AllPieces", "pieces": [{"name": string, "x": int, "y": int, "color": string},...]}
 ```
+
 Each entry of the pieces array contains the name of the piece, the x coordinate, and
 the y coordinate. The pieces are: "wood", "ore", "gems", "bread", "gold", "piece", and 
 "hut". For "piece" and "hut", there is an additional color field for the piece's color.
@@ -119,66 +154,75 @@ the y coordinate. The pieces are: "wood", "ore", "gems", "bread", "gold", "piece
 ### Placing a Piece
 
 Whenever a player places a piece, they will send the message:
+
 ```json
-{"message":"PlayPiece", "color": string, "piece": string, "x": int, "y": int}
+{"message":"PlayPieceRequest", "color": string, "piece": string, "x": int, "y": int, "turn": int}
 ```
-The piece names are "hut" or "piece". <!-- TODO: What to do if the move is invalid? 
--->
+
+The `piece` field is either "hut" or "piece". The `turn` field is the current turn number, included to ensure
+`PlayPieceRequest` messages are idempotent. 
+
+```json
+{"message":"PlayPieceResponse", "success": bool, "reason": string}
+```
+
+The `success` field is true if the piece was placed, and false if the move was invalid. The `reason` field is
+provided when `success` is false, and is one of the following:
+
+// TODO: List of error codes for piece placement.
 
 ### Advancing the Turn
 
 At the beginning of each player's turn, the host will send the message:
+
 ```json
 {"message":"CurrentTurn", "color": string}
 ```
+
 The color parameter is the player's color.
 
 ### Advancing the Round
 
 When the first round is done, and when the game ends, the host will send the message:
+
 ```json
-{"message":"PlayerScores", "isGameOver": boolean, "scores": [{"color": string, "score": int}, ...]}
+{"message":"PlayerScores", "isGameOver": boolean, "players": [Player]}
 ```
+
 If the first round is over, then isGameOver is false. Then the host will reset the map, distribute
 resources, and then send the map again.
 
-When the game is over, no further communication on the game's topics or subtopics is necessary after
+After the second round is done, `isGameOver` is true. No further communication on the game's topics or subtopics is necessary after
 this message.
 
 ### Conceding
 
 If a player concedes, they will send the message:
+
 ```json
 {"message":"Conceded", "color": string}
 ```
+
 Where color is the player's color. If the host concedes, they will randomly choose one of
 the remaining players, and will send the message:
+
 ```json
 {"message":"HostConcede", "oldColor": string, "newColor": string}
 ```
+
 newColor is the color of the new host player. The old host then prints the map state, if
 able, and an updated player turn order.
 
 If all players other than the host concede, then the host wins.
 
-### Handling Kicked Players
+## Handling Kicked Players
 
 If a player is kicked, then the host may choose one of the following options:
 
 #### Computer Plays
-Allow a computer to play for that player until they return. The host will send the 
-message:
-```json
-{"message":"KickedComputerStandin", "color": string, "newName": string}
-```
-color is the color of the kicked player. newName is a new username that the host may
-choose. It can be an empty string. 
 
-The next client that sends a JoinRequest for that color takes over that player. The 
-host will reply with:
-```json
-{"message":"JoinTakeover", "clientId": string}
-```
+Allow a computer to play for that player until they return. The host will send the 
+a `Replace` message.
 
 See *Taking Over for a Player* below for the next steps.
 
@@ -186,35 +230,51 @@ See *Taking Over for a Player* below for the next steps.
 To choose this option, the host will send the message:
 
 ```json
-{"message":"KickedGamePause", "color": string}
+{"message":"GamePause", "pauseUTC": number}
 ```
-All game actions by the host will stop until the game resumes. Clients may still send 
-actions, and both clients and hosts must continue to ping each other.
+The `pauseUTC` field is the unix time in the UTC timezone when the server sends the message.
+It is used to ensure game pauses are idempotent.
 
-The host may then either choose to continue with either of the two other options. Or,
-when a new player joins successfully, the host will send the message:
+All game actions by the host will stop until the game resumes. If a client sends a message
+corresponding to a game action, the host will retransmit the `GamePause` message as
+its reply.
+
+The host may send any number of `Replace` messages while a game is paused.
+
+When the host is ready to resume, they will send the message:
 
 ```json
-{"message":"KickedGameResume", "color": string, "name": string}
+{"message":"GameResume", "pauseUTC": number}
 ```
-
-See *Taking Over for a Player* below for the next steps.
-
-#### Force the player to concede.
-The host can completely remove a player from the game by sending:
-```json
-{"message":"KickedForcedConcede", "color": string}
-```
-
-Play will then continue as normal. No pieces will be removed from the board.
+The `pauseUTC` field is the same as the corresponding `GameResume` message.
 
 ### Taking Over for a Player
-In the event that a player is allowed to rejoin a game, then the host will send the
-"Players" message again.
 
-If the player rejoins before round 2, then the host will send the message:
-```json
-{"message":"NoPreviousRounds"}
+Any client not currently playing the game can send a join request. The host may accept
+or reject the attempt in the normal way. If a join request is accepted, the host must
+send a corresponding `Replace` message.
+
+## Intermediate Objects
+
+### The Player Object
+
 ```
-Otherwise, the host will re-send the RoundOneScores message. Then the host will send
-the map, and the turn order.
+{
+	"username": string,
+	"clientId": string,
+	"color": string,
+	"score": number,
+	"turn": number,
+	"piecesLeft": number,
+	"hutsLeft": number,
+	"resources": {
+		"wood": number,
+		"gems": number,
+		"bread": number,
+		"rocks": number,
+		"gold": number
+	}
+}
+```
+
+// TODO: Explanations of the fields, and their default values.
