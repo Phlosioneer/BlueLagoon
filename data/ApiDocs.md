@@ -246,7 +246,7 @@ When the host is ready to resume, they will send the message:
 ```json
 {"message":"GameResume", "pauseUTC": number}
 ```
-The `pauseUTC` field is the same as the corresponding `GameResume` message.
+The `pauseUTC` field matches the corresponding `GamePause` message.
 
 ### Taking Over for a Player
 
