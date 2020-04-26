@@ -41,22 +41,26 @@ public class ButtonManager {
 		// Find the first button that contains the mouse and forward the appropriate event to it.
 		// Do not forward the same event to more than one button.
 		// Only one button should be clickable if more than one overlap.
-		this.buttons
-			.values()
-			.stream()
-			.filter((Button b) -> b.containsPoint(e.getX(), e.getY()))
-			.findFirst() //We don't want to run handlers on every button that matches this position if they overlap.
-			.ifPresent((Button b) -> {
+		{
+			Button targetedButton = null;
+			for (Button b : this.buttons.values()) {
+				if (b.containsPoint(e.getX(), e.getY())) {
+					targetedButton = b;
+					break;
+				}
+			}
+			if (targetedButton != null) {
 				switch (e.getAction()) {
 				case MouseEvent.CLICK: {
-					b.click();
+					targetedButton.click();
 				} break;
 				case MouseEvent.MOVE: {
-					b.hoverEnter();
+					targetedButton.hoverEnter();
 				} break;
 				default:
 					break;
 				}
-			});
+			}
+		}
 	}
 }
