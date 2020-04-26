@@ -76,21 +76,27 @@ public class Button {
 	 * Runs all click handlers.
 	 */
 	public void click() {
-		throw new RuntimeException("TODO: implement click handler");
+		for (ButtonClickAction a : this.clickActions) {
+			a.perform();
+		}
 	}
 	
 	/**
 	 * Runs all hover enter handlers.
 	 */
 	public void hoverEnter() {
-		throw new RuntimeException("TODO: implement hover enter handler");
+		for (ButtonHoverEnterAction a : this.hoverEnterActions) {
+			a.perform();
+		}
 	}
 	
 	/**
 	 * Runs all hover exit handlers.
 	 */
 	public void hoverExit() {
-		throw new RuntimeException("TODO: implement hover exit handler");
+		for (ButtonHoverExitAction a : this.hoverExitActions) {
+			a.perform();
+		}
 	}
 	
 	/**
