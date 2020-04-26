@@ -47,6 +47,13 @@ public class Button {
 	public void setH(int h) {
 		this.h = Math.abs(h);
 	}
+	
+	public boolean containsPoint(int x, int y) {
+		return x >= this.x 
+				&& x <= this.x + this.w
+				&& y >= this.y
+				&& y <= this.y + this.h;
+	}
 
 	/**
 	 * Creates a button with the specified position and size. Treats negative size values as positive.
