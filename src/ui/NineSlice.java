@@ -57,51 +57,49 @@ public class NineSlice {
 		int[] targetHRules = {
 				y - upperBorderThickness, y, y + h, y + h + lowerBorderThickness,
 		};
-		int hCount = closestCount(this.slices[1][1].width, w);
-		int vCount = closestCount(this.slices[1][1].height, h);
+		int hFull = Math.floorDiv(w, this.slices[1][1].width) + 1;
+		int vFull = Math.floorDiv(h, this.slices[1][1].height) + 1;
+		
 		int prevImageMode = g.imageMode;
 		g.imageMode(PGraphics.CORNERS);
 		for(int xi = 0; xi < 3; xi++) {
 			for(int yi = 0; yi < 3; yi++) {
-				int xReps = xi == 1 ? hCount : 1; // If we are not in a middle section, only one repetition
-				int yReps = yi == 1 ? vCount : 1; // otherwise, as many repetitions as the respective counts
+				int xReps = xi == 1 ? hFull : 1; // If we are not in a middle section, only one repetition
+				int yReps = yi == 1 ? vFull : 1; // otherwise, as many repetitions as the respective counts
+				g.clip(targetVRules[xi], targetHRules[yi], targetVRules[xi + 1], targetHRules[yi + 1]);
 				this.tileXY(this.slices[xi][yi], 
 						g,
 						targetVRules[xi],
 						targetHRules[yi], 
-						targetVRules[xi + 1], 
-						targetHRules[yi + 1], 
 						xReps, 
 						yReps);
+				g.noClip();
 			}
 		}
 		g.imageMode(prevImageMode);
 	}
 	
-	private void tileXY(PImage sourceImage, PGraphics g, int x1, int y1, int x2, int y2, int xSteps, int ySteps) {
-		int dx = (x2 - x1) / xSteps;
-		int dy = (y2 - y1) / ySteps;
+	private void tileXY(PImage sourceImage, PGraphics g, int x, int y, int xSteps, int ySteps) {
+		int dx = sourceImage.width;
+		int dy = sourceImage.height;
 		for(int xi = 0; xi < xSteps; xi++) {
 			for(int yi = 0; yi < ySteps; yi++) {
 				g.image(sourceImage,
-						x1 + xi * dx,
-						y1 + yi * dy, 
-						x1 + (xi + 1) * dx, 
-						y1 + (yi + 1) * dy);
+						x + xi * dx,
+						y + yi * dy, 
+						x + (xi + 1) * dx, 
+						y + (yi + 1) * dy);
 			}	
 		}
 	}
-	
-	private int closestCount(double sourceWidth, double targetWidth) {
-		if (targetWidth < sourceWidth) {
-			return 1;
-		} else {
-			return (int)Math.round(Math.floor(targetWidth/sourceWidth - 0.5)) + 1; // These casts feel sketchy kinda
-		}
-	}
+
 	
 	public void drawWithin(PGraphics g, int x, int y, int w, int h) {
-		throw new RuntimeException("TODO: implement drawWithin");
+		drawAround(g,
+				x + this.leftBorderThickness,
+				y + this.upperBorderThickness,
+				w - (this.leftBorderThickness + this.rightBorderThickness),
+				h - (this.upperBorderThickness + this.lowerBorderThickness));
 	}
 
 }

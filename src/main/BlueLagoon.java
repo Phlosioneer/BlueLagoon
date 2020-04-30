@@ -44,8 +44,12 @@ public class BlueLagoon extends PApplet {
 	public void draw() {
 		this.background(255);
 		if(nSlice != null) {
+			if (this.mousePressed) {
+				nSlice.drawWithin(this.g, 50, 50, this.mouseX - 50, this.mouseY - 50);
+			} else {
+				nSlice.drawAround(this.g, 50, 50, this.mouseX - 50, this.mouseY - 50);
+			}
 			
-			nSlice.drawAround(this.g, 50, 50, this.mouseX - 50, this.mouseY - 50);
 		}
 		
 		
